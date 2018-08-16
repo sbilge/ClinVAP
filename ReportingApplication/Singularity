@@ -1,0 +1,15 @@
+Bootstrap: docker
+From: ensemblorg/ensembl-vep:release_93
+
+%files
+
+
+%labels
+Maintainer sueruen@informatik.uni-tuebingen.destination
+Version V93
+
+%post
+
+
+
+%runscript

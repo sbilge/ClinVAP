@@ -1,0 +1,147 @@
+{
+  "patient_firstname": "Hipp",
+  "patient_lastname": "Edgar",
+  "patient_dateofbirth": "test",
+  "patient_diagnosis_short": "stuff",
+  "mutation_load": "1",
+  "mutation_ns_snv": "2",
+  "mutation_affected_oncogenes"  : "3",
+  "mutation_affected_tumorsupressorgenes": "4",
+  "mutation_hla_type": "5",
+  "mutation_additional_information": "6",
+  "mskdg": [
+    {
+      "Gene": "BRAF",
+      "Mutation": "p.Val600Glu",
+      "Confidence": 4,
+      "References": "1,2,3,4"
+    },
+    {
+      "Gene": "SF3B1",
+      "Mutation": "p.Pro718Leu",
+      "Confidence": 3,
+      "References": "1,2,4"
+    },
+    {
+      "Gene": "DLEC1",
+      "Mutation": "p.Asp215Asn",
+      "Confidence": 2,
+      "References": "3,5"
+    }
+ ],
+"ptp_da":[
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "sorafenib",
+    "Confidence": 9,
+    "References": "6,7,8,9,10,11,12,13,14"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "dabrafenib",
+    "Confidence": 4,
+    "References": "12,14,15"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "vemurafenib",
+    "Confidence": 4,
+    "References": "12,14,16,17"
+  }
+],
+"ptp_ia":[
+  {
+    "Gene": "BRAF",
+    "Mutation": "AGK-BRAF",
+    "Therapy": "Sorafenib",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "29"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "AGK-BRAF",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "29"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "L597R",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "30"
+  }
+],
+"mskpe":[
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Cetuximab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "25"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Dabrafenib,Trametinib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "24"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Dabrafenib",
+    "Disease": "Non-small Cell Lung Carcinoma",
+    "Evidence": "C",
+    "References": "28"
+  }
+], 
+"ref": [
+  {
+    "rowid": 1,
+    "citation": "Futreal et al., A census of human cancer genes., Nature reviews. Cancer, 4, 3, 2004"
+  },
+  {
+    "rowid": 2,
+    "citation": "Vogelstein et al., Cancer genome landscapes., Science (New York, N.Y.), 339, 6127, 2013"
+  },
+  {
+    "rowid": 3,
+    "citation": "Apweiler et al., UniProt: the Universal Protein knowledgebase., Nucleic acids research, 32, Database issue, 2004"
+  },
+  {
+    "rowid": 4,
+    "citation": "Rubio et al., In silico prescription of anticancer drugs to cohorts of 28 tumor types reveals targeting opportunities., Cancer cell, 27, 3, 2015"
+  }
+],
+"appendix": [
+  {
+    "Gene": "TNFRSF8",
+    "Mutation": "p.Pro215Ser",
+    "dbSNP": "rs267597959",
+    "COSMIC": ["COSM14024"]
+  },
+  {
+    "Gene": "KIAA0319L",
+    "Mutation": "p.Pro278Ser",
+    "dbSNP": "rs267598576",
+    "COSMIC": ["COSM36587"]
+  },
+  {
+    "Gene": "FAM46C",
+    "Mutation": "p.Thr209Asn",
+    "dbSNP": "character(0)",
+    "COSMIC": []
+  }
+]
+}
+
+

@@ -1,0 +1,25 @@
+{
+	"name": "clinicalreporting_docxtemplater",
+	"version": "1.0.0",
+	"description": "Utility for generating clinical reports from docx templates and JSON data.",
+	"keywords": [
+		"clinicalreporting",
+		"docx"
+	],
+	"homepage": "https://github.com/lukaszimmermann/clinicalreporting_docxtemplater#readme",
+	"bugs": {
+		"url": "https://github.com/lukaszimmermann/clinicalreporting_docxtemplater/issues"
+	},
+	"author": "lukaszimmermann",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lukaszimmermann/clinicalreporting_docxtemplater.git"
+	},
+	"dependencies": {
+		"commander": "^2.14.1",
+		"docxtemplater": "^3.4.2",
+		"jszip": "^2.6.1",
+		"logger": "0.0.1"
+	}
+}
