@@ -1,0 +1,32 @@
+Bootstrap: docker
+From: ensemblorg/ensembl-vep:release_93
+
+%setup
+commands here are executed on the host system outside of the container after the base. 
+you should copy files from your host to $SINGULARITY_ROOTFS to move them into the container.
+
+%files
+cp copy_data.sh /opt/vep
+
+%labels
+Maintainer sueruen@informatik.uni-tuebingen.destination
+Version V93
+
+%post
+# downloading cache and api files for VEP version 93. 
+cd /opt/vep/src/ensembl-vep
+git pull && \
+git checkout release/93 && \
+./INSTALL.pl -n --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37
+
+# downloading files for VEP VEP_plugins
+
+cd /opt/vep
+wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz && \
+wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz.fai && \
+wget https://raw.githubusercontent.com/Ensembl/VEP_plugins/release/90/LoFtool_scores.txt
+
+%runscript
+cd /opt/vep
+chmod +x copy_data.sh
+./copy_data.sh
