@@ -1,10 +1,6 @@
 Bootstrap: docker
 From: ensemblorg/ensembl-vep:release_93
 
-%setup
-commands here are executed on the host system outside of the container after the base. 
-you should copy files from your host to $SINGULARITY_ROOTFS to move them into the container.
-
 %files
 cp copy_data.sh /opt/vep
 
