@@ -41,10 +41,10 @@ Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAn
 
 
 # move ini file to its default location
-cd /opt/vep
-mv vep_docker.ini /opt/vep/.vep/vep.ini
+cp /opt/vep/vep_docker.ini /opt/vep/.vep/vep.ini
 
 # install LoF plugin
+cd /opt/vep
 wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \
   unzip v0.3-beta.zip && \
   rm v0.3-beta.zip && \
