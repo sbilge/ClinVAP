@@ -45,6 +45,7 @@ ENV PERL5LIB /opt/vep/loftee-0.3-beta/:$PERL5LIB
 COPY vep_docker.ini /opt/vep/.vep/vep.ini
 COPY make_report.sh /opt/vep/
 COPY reporting.R /opt/vep
+COPY driver_db_dump.json /opt/vep
 RUN mkdir clinicalreporting_docxtemplater
 COPY clinicalreporting_docxtemplater /opt/vep/clinicalreporting_docxtemplater
 
@@ -54,5 +55,8 @@ RUN npm install
 WORKDIR /opt/vep
 #RUN chmod +x /home/vep/make_report.sh /home/vep/reporting.R
 #CMD /home/vep/make_report.sh
+RUN touch docker.flag && \ 
+ echo "This file is created to signal make report script that docker is using it. It means database dump is not given as a parameter.  " >> docker.flag
+
 RUN chmod +x make_report.sh reporting.R
 ENTRYPOINT ["/opt/vep/make_report.sh"]
