@@ -40,15 +40,15 @@ Rscript -e 'devtools::install_github("aryoda/tryCatchLog")'
 Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAnnotation", "rjson"), ask = FALSE, suppressUpdates = TRUE)'
 
 
-# move ini file to its default location
-cp /opt/vep/vep_docker.ini /opt/vep/.vep/vep.ini
-
 # install LoFtool plugin
 cd /opt/vep
 wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \
   unzip v0.3-beta.zip && \
   rm v0.3-beta.zip && \
   cp loftee-0.3-beta/LoF.pm ~/.vep/Plugins
+
+# move ini file to its default location
+mv /opt/vep/vep_docker.ini /opt/vep/.vep/vep.ini
 
 # this is required for loftee-0.3-beta
 cpanm DBD::SQLite
