@@ -9,7 +9,7 @@ Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
-# downloading cache and api files for VEP version 93. 
+# downloading cache and api files for VEP base version 93. 
 cd /opt/vep/src/ensembl-vep
 git pull && \
 git checkout release/93 && \
