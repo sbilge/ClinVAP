@@ -5,7 +5,7 @@ From: ensemblorg/ensembl-vep:release_93
 cp copy_data.sh /opt/vep
 
 %labels
-Maintainer sueruen@informatik.uni-tuebingen.destination
+Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post

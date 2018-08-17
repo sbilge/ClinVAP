@@ -2,14 +2,22 @@ Bootstrap: docker
 From: ensemblorg/ensembl-vep:release_93
 
 %files
-
+cp vep_docker.ini /opt/vep/.vep/vep.ini
+cp make_report.sh /opt/vep/
+cp reporting.R /opt/vep
+cp driver_db_dump.json /opt/vep
+cp -r clinicalreporting_docxtemplater /opt/vep
 
 %labels
-Maintainer sueruen@informatik.uni-tuebingen.destination
+Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
-
+# downloading plugin for VEP version 93. 
+cd /opt/vep/src/ensembl-vep
+git pull && \
+git checkout release/93 && \
+./INSTALL.pl -n -a p -g LoFtool
 
 
 %runscript
