@@ -3,7 +3,7 @@ From: ensemblorg/ensembl-vep:release_93
 
 
 %files
-vep_docker.ini /opt/vep/.vep/vep.ini
+vep_docker.ini /opt/vep/
 make_report.sh /opt/vep
 reporting.R /opt/vep
 driver_db_dump.json /opt/vep
@@ -48,17 +48,20 @@ wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \
   rm v0.3-beta.zip && \
   cp loftee-0.3-beta/LoF.pm ~/.vep/Plugins
 
-
 # this is required for loftee-0.3-beta
 cpanm DBD::SQLite
 
 # install packages for clinicalreporting_docxtemplater
-cd /opt/vep/clinicalreporting_docxtemplater
+cd /opt/vep/clinicalreporting_docxtemplater && \
 npm install
 
 # make files executable
-cd /opt/vep
+cd /opt/vep && \
 chmod +x make_report.sh reporting.R
+
+# put ini file in the default location woth its default name
+mv vep_docker.ini  vep.ini && \
+mv vep.ini ~/.vep 
 
 %runscript
 cd /opt/vep
