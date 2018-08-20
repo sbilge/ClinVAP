@@ -16,7 +16,7 @@ Version V93
 PERL5LIB /opt/vep/loftee-0.3-beta/:$PERL5LIB
 
 %post
-# downloading plugin for VEP base version 93. 
+# downloading plugin and fixing VEP base version 93. 
 cd /opt/vep/src/ensembl-vep
 git pull && \
 git checkout release/93 && \
