@@ -1,12 +1,12 @@
 Bootstrap: docker
 From: ensemblorg/ensembl-vep:release_93
 
+
 %files
-cp vep_docker.ini /copied_from_host
-cp make_report.sh /copied_from_host
-cp reporting.R /copied_from_host
-cp driver_db_dump.json /copied_from_host
-cp -r clinicalreporting_docxtemplater /copied_from_host
+cp vep_docker.ini /opt/vep
+cp make_report.sh /opt/vep
+cp reporting.R /opt/vep
+cp driver_db_dump.json /opt/vep
 
 %labels
 Maintainer sueruen@informatik.uni-tuebingen.de
@@ -48,18 +48,15 @@ wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \
   cp loftee-0.3-beta/LoF.pm ~/.vep/Plugins
 
 # move ini file to its default location
-mv /copied_from_host/vep_docker.ini /opt/vep/.vep/vep.ini
-mv /copied_from_host/make_report.sh /opt/vep
-mv /copied_from_host/reporting.R /opt/vep
-mv /copied_from_host/driver_db_dump.json /opt/vep
-mv /copied_from_host/clinicalreporting_docxtemplater /opt/vep
+mv /opt/vep/vep_docker.ini /opt/vep/.vep/vep.ini
+
 
 # this is required for loftee-0.3-beta
 cpanm DBD::SQLite
 
 # install packages for clinicalreporting_docxtemplater
-cd /opt/vep/clinicalreporting_docxtemplater
-npm install
+# cd /opt/vep/clinicalreporting_docxtemplater
+# npm install
 
 # make files executable
 cd /opt/vep
