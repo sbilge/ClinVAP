@@ -3,7 +3,7 @@ From: ensemblorg/ensembl-vep:release_93
 
 
 %files
-vep_docker.ini /opt/vep
+vep_docker.ini /opt/vep/.vep/vep.ini
 make_report.sh /opt/vep
 reporting.R /opt/vep
 driver_db_dump.json /opt/vep
@@ -47,9 +47,6 @@ wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \
   unzip v0.3-beta.zip && \
   rm v0.3-beta.zip && \
   cp loftee-0.3-beta/LoF.pm ~/.vep/Plugins
-
-# move ini file to its default location
-mv /opt/vep/vep_docker.ini /opt/vep/.vep/vep.ini
 
 
 # this is required for loftee-0.3-beta
