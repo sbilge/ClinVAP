@@ -3,10 +3,11 @@ From: ensemblorg/ensembl-vep:release_93
 
 
 %files
-cp vep_docker.ini /opt/vep
-cp make_report.sh /opt/vep
-cp reporting.R /opt/vep
-cp driver_db_dump.json /opt/vep
+vep_docker.ini /opt/vep
+make_report.sh /opt/vep
+reporting.R /opt/vep
+driver_db_dump.json /opt/vep
+clinicalreporting_docxtemplater /opt/vep/clinicalreporting_docxtemplater
 
 %labels
 Maintainer sueruen@informatik.uni-tuebingen.de
@@ -55,8 +56,8 @@ mv /opt/vep/vep_docker.ini /opt/vep/.vep/vep.ini
 cpanm DBD::SQLite
 
 # install packages for clinicalreporting_docxtemplater
-# cd /opt/vep/clinicalreporting_docxtemplater
-# npm install
+cd /opt/vep/clinicalreporting_docxtemplater
+npm install
 
 # make files executable
 cd /opt/vep

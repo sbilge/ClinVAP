@@ -2,7 +2,7 @@ Bootstrap: docker
 From: ensemblorg/ensembl-vep:release_93
 
 %files
-cp copy_data.sh /opt/vep
+copy_data.sh /opt/vep
 
 %labels
 Maintainer sueruen@informatik.uni-tuebingen.de
