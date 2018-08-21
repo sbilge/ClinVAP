@@ -7,7 +7,7 @@
 # This script parses a vcf file and generates two a docx file containing information about the most
 # relevant mutations found in the input vcf that can be used for
 # clinical reporting.
-setwd('/Users/bilges/Desktop/abi_tuebingen/clinical_reporting/RScriptDebug/vep_93_database_dump')
+
 library(futile.logger)
 library(tryCatchLog)
 
@@ -47,7 +47,6 @@ tryLog({
   vcfFile <- opt$file
   reportFile <- opt$report
 })
-
 #  checks of input VCF
 if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   optparse::print_help(opt_parser)
@@ -192,7 +191,7 @@ if (nrow(mvld) == 0) {
 
 # now query our annotation database for information on drugs and driver status for all genes occuring in the
 # mvld. Then create a relational schema for each with hgnc_id as our 'key', resulting in 3 tables, one each for genes, drivers, and drugs.
-if (is.null(dataFile)){
+if (is.null(opt$database)){
     db_baseurl = 'http://localhost:5000/biograph_genes?where={"hgnc_id":{"$in":["'
     querystring = URLencode(paste(db_baseurl, paste(unique(mvld$hgnc_id), collapse = '","'), '"]}}', sep=''))
     biograph_json <- as.tbl_json(getURL(querystring))
@@ -463,3 +462,4 @@ if(file.exists(reportFile)) {
   log4r::level(logger) <- 'ERROR'
   log4r::error(logger, "JSON output is not created.") 
 }
+file.rename("base.log", paste0(vcfFile,"_base.log"))

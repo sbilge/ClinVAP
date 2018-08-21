@@ -25,16 +25,15 @@ outname="${outfilename%.*}"
 # annotate file
 echo "################ Starting variant effect prediction ################"
 if [ -f docker.flag ]; then
-    vep -i $infile -o $outname.vcf --config /opt/vep/.vep/vep.ini # called by docker
+    vep -i $file -o $outname.vcf --config /opt/vep/.vep/vep.ini # called by docker
 else
-    vep -i $infile -o $outname.vcf -d driver_db_dump.json --config /opt/vep/.vep/vep.ini # called by singularity
+    vep -i $file -o $outname.vcf -d /opt/vep/driver_db_dump.json --config /opt/vep/.vep/vep.ini # called by singularity
 fi
 
 
 # create json
 echo "################ Start to create json ################"
-Rscript /opt/vep/reporting.R -f $outname.vcf -r $outname.json && \
-cp base.log /inout
+Rscript /opt/vep/reporting.R -f $outname.vcf -r $outname.json
 
 if [[ $savedOut == *"j"* ]]; then
     cp $outname.json /inout
@@ -53,3 +52,5 @@ if [[ $savedOut == *"p"* ]]; then
     cp $outname.pdf /inout
 fi
 done
+mkdir /inout/logs
+cp *.log /inout/logs
