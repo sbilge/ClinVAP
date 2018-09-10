@@ -18,11 +18,10 @@ git checkout release/93 && \
 # downloading files for VEP VEP_plugins
 
 cd /opt/vep
-wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz && \
-wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz.fai && \
+wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz
+wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz.fai
 wget https://raw.githubusercontent.com/Ensembl/VEP_plugins/release/90/LoFtool_scores.txt
 
 %runscript
 cd /opt/vep
-chmod +x copy_data.sh
 ./copy_data.sh

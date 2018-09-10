@@ -1,22 +1,22 @@
-# Clinical Reporting in R
+# Clinical Reporting Pipeline
 
 This is a prototype implementation of a clinical reporting pipeline in R.
-Currently, it creates a genetic report of somatic mutations from a vcf file annotated via [Ensembl Variant Effect Predictor](https://github.com/Ensembl/ensembl-vep).
+It creates a genetic report of somatic mutations from a vcf file annotated via [Ensembl Variant Effect Predictor](https://github.com/Ensembl/ensembl-vep).
 
-Note: CIvic only supports reference genome build 37.
+Note: CIViC only supports reference genome build 37.
 
 
 
-## Usage
+## Usage with Docker
 
-We assume that we want to create a report for a vcf file `my.vcf` residing in `$HOME`, and that you have R and Docker installed. First, follow instructions to download the [Biograph REST API](https://github.com/mrdivine/clinicalReporting_DB_RESTAPI). 
+We assume that we want to create a report for a vcf file, and that you have Docker installed. 
 
 We clone this repository and checkout the single_script branch:
 
 ```
-1. git clone -b single_script https://github.com/PersonalizedOncology/ClinicalReportingApplication.git
+1. git clone -b master https://github.com/PersonalizedOncology/ClinicalReportingPipeline.git
 ```
-Pelase note that the input VCF file should be in ReportingApplication/inout folder.
+Pelase note that the input VCF file(s) should be in ReportingApplication/inout folder.
 
 ```
 2. cd ClinicalReportingPipeline/
@@ -30,3 +30,7 @@ Pelase note that the input VCF file should be in ReportingApplication/inout fold
 	* `p` to save report in PDF format
 
 You should now have the report in ReportingApplication/inout folder.
+
+
+## Usage with Singularity
+
