@@ -11,7 +11,7 @@ clinicalreporting_docxtemplater /opt/vep/clinicalreporting_docxtemplater
 
 %labels
 Maintainer sueruen@informatik.uni-tuebingen.de
-Version V93
+Version VEP93
 
 %environment
 PERL5LIB /opt/vep/loftee-0.3-beta/:$PERL5LIB

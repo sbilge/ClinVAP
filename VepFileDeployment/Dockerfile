@@ -16,6 +16,9 @@ RUN wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz && \
 RUN wget https://www.broadinstitute.org/%7Ekonradk/loftee/phylocsf.sql.gz && \
     gunzip phylocsf.sql.gz
 
+RUN touch docker.flag && \ 
+    echo "This file is created to signal copy data script that docker is using it. It means that it will only copy the files from the container in stead of downloading them first.  " >> docker.flag
+
 USER root
 COPY copy_data.sh /opt/vep
 RUN chmod +x copy_data.sh
