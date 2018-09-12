@@ -9,18 +9,10 @@ Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
-# downloading cache and api files for VEP base version 93. 
+# VEP base version 93. 
 cd /opt/vep/src/ensembl-vep
 git pull && \
-git checkout release/93 && \
-./INSTALL.pl -n --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37
-
-# downloading files for VEP VEP_plugins
-
-cd /opt/vep
-wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz
-wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz.fai
-wget https://raw.githubusercontent.com/Ensembl/VEP_plugins/release/90/LoFtool_scores.txt
+git checkout release/93 
 
 %runscript
 cd /opt/vep
