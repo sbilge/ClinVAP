@@ -53,12 +53,14 @@ if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   log4r::level(logger) <- 'ERROR'  
   log4r::error(logger, "Input file is not provided.")
   log4r::error(logger, "The proces is terminated.")
+  file.rename("base.log", "no_input.log"))
   stop()
   #  stop("Please supply a valid input file")
 } else {
   log4r::level(logger) <- 'INFO'
   messages = paste(opt$file, "is provided as input file")
   log4r::info(logger, messages)
+  file.rename("base.log", paste0(opt$file,"_base.log"))
 }
 
 # checks of output file command-line option
@@ -462,4 +464,3 @@ if(file.exists(reportFile)) {
   log4r::level(logger) <- 'ERROR'
   log4r::error(logger, "JSON output is not created.") 
 }
-file.rename("base.log", paste0(vcfFile,"_base.log"))
