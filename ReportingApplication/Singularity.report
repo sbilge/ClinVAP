@@ -59,7 +59,7 @@ npm install
 cd /opt/vep && \
 chmod +x make_report.sh reporting.R
 
-# put ini file in the default location woth its default name
+# put ini file in its default location woth its default name
 mv vep_docker.ini  vep.ini && \
 mv vep.ini ~/.vep 
 

@@ -14,6 +14,9 @@ cd /opt/vep/src/ensembl-vep
 git pull && \
 git checkout release/93 
 
+cd /opt/vep
+chmod +x copy_data.sh
+
 %runscript
 cd /opt/vep
 ./copy_data.sh
