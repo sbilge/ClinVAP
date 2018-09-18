@@ -14,8 +14,10 @@ Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
-# download plugin and fixing VEP base version 93. 
-su vep -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" # have to switch user vep to install 
+# download plugin and fixing VEP base version 93.
+mkdir /opt/vep/.vep
+cd /opt/vep/src/ensembl-vep
+sudo -u vep -c "./INSTALL.pl -n -a p -g LoFtool" # have to switch user vep to install 
 
 
 # install R 
