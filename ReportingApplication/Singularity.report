@@ -15,11 +15,8 @@ Version V93
 
 %post
 # download plugin and fixing VEP base version 93. 
-mkdir /opt/vep/.vep
-cd /opt/vep/src/ensembl-vep
-git pull && \
-git checkout release/93 && \
-./INSTALL.pl -n -a p -g LoFtool
+mkdir /opt/vep/.vep  && \
+perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool
 
 # install R 
 sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list' && \
