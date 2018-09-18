@@ -47,7 +47,8 @@ wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \
 
 # this is required for loftee-0.3-beta
 cpanm DBD::SQLite
-PERL5LIB /opt/vep/loftee-0.3-beta/:$PERL5LIB
+export PERL5LIB=/opt/vep/loftee-0.3-beta/:$PERL5LIB
+# PERL5LIB /opt/vep/loftee-0.3-beta/:$PERL5LIB
 
 # install packages for clinicalreporting_docxtemplater
 cd /opt/vep/clinicalreporting_docxtemplater && \
