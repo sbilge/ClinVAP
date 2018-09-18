@@ -55,7 +55,7 @@ cpanm DBD::SQLite
 cd /opt/vep/clinicalreporting_docxtemplater && \
 npm install
 
-# make files executable
+# make scripts executable
 cd /opt/vep && \
 chmod +x make_report.sh reporting.R
 
