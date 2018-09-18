@@ -34,7 +34,7 @@ USER vep
 RUN wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \
   unzip v0.3-beta.zip && \
   rm v0.3-beta.zip && \
-  cp loftee-0.3-beta/LoF.pm ~/.vep/Plugins
+  cp loftee-0.3-beta/LoF.pm /opt/vep/.vep/Plugins
 
 USER root
 # this is required for loftee-0.3-beta
