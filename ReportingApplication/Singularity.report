@@ -17,8 +17,7 @@ Version V93
 # download plugin and fixing VEP base version 93.
 mkdir /opt/vep/.vep
 cd /opt/vep/src/ensembl-vep
-sudo -u vep -c "./INSTALL.pl -n -a p -g LoFtool" # have to switch user vep to install 
-
+su - vep -c "./INSTALL.pl -n -a p -g LoFtool" # have to switch user vep to install 
 
 # install R 
 sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list' && \
@@ -60,7 +59,7 @@ chmod +x make_report.sh reporting.R
 
 # put ini file in its default location woth its default name
 mv vep_docker.ini  vep.ini && \
-su vep -c  "mv vep.ini /opt/vep/.vep"
+su - vep -c  "mv vep.ini /opt/vep/.vep"
 
 %runscript
 cd /opt/vep
