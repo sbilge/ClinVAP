@@ -15,6 +15,7 @@ Version V93
 
 %post
 # download plugin and fixing VEP base version 93. 
+mkdir /opt/vep/.vep
 cd /opt/vep/src/ensembl-vep
 git pull && \
 git checkout release/93 && \
