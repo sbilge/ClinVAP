@@ -15,8 +15,9 @@ Version V93
 
 %post
 # download plugin and fixing VEP base version 93.
-mkdir /opt/vep/.vep
-su - vep -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" # have to switch user vep to install 
+cd /opt/vep/src/ensembl-vep && \
+chmod +x INSTALL.pl && \
+./INSTALL.pl -n -a p -g LoFtool
 
 # install R 
 sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list' && \
@@ -38,10 +39,10 @@ Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAn
 
 # install LoFtool plugin
 cd /opt/vep
-su vep -c "wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \ 
+wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \ 
   unzip v0.3-beta.zip && \
   rm v0.3-beta.zip && \
-  cp loftee-0.3-beta/LoF.pm ~/.vep/Plugins"
+  cp loftee-0.3-beta/LoF.pm ~/.vep/Plugins
 
 # this is required for loftee-0.3-beta
 cpanm DBD::SQLite
@@ -58,7 +59,7 @@ chmod +x make_report.sh reporting.R
 
 # put ini file in its default location woth its default name
 mv vep_docker.ini  vep.ini && \
-su - vep -c  "mv vep.ini /opt/vep/.vep"
+mv vep.ini /opt/vep/.vep
 
 %runscript
 cd /opt/vep
