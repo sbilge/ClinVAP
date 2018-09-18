@@ -24,33 +24,32 @@ outname="${outfilename%.*}"
 
 # annotate file
 echo "################ Starting variant effect prediction ################"
-if [ -f docker.flag ]; then
-    vep -i $file -o $outname.vcf --config /opt/vep/.vep/vep.ini # called by docker
+vep -i $file -o $outname.vcf --config /opt/vep/.vep/vep.ini 
+
+# create report as json
+echo "################ Start to create json ################"
+if [ -f docker.flag ]; then # called by docker
+    Rscript /opt/vep/reporting.R -f $outname.vcf -r $outname.json
 else
-    vep -i $file -o $outname.vcf -d /opt/vep/driver_db_dump.json --config /opt/vep/.vep/vep.ini # called by singularity
+    Rscript /opt/vep/reporting.R -f $outname.vcf -r $outname.json -d /opt/vep/driver_db_dump.json
 fi
 
-
-# create json
-echo "################ Start to create json ################"
-Rscript /opt/vep/reporting.R -f $outname.vcf -r $outname.json
-
 if [[ $savedOut == *"j"* ]]; then
-    cp $outname.json /inout
+    cp $outname.json /inout/results
     echo "JSON is saved to the volume"
 fi
 
 echo "################ Start to create report ################"
 nodejs /opt/vep/clinicalreporting_docxtemplater/main.js -d $outname.json -t /opt/vep/clinicalreporting_docxtemplater/data/template.docx -o $outname.docx
 if [[ $savedOut == *"w"* ]]; then
-    cp $outname.docx  /inout
+    cp $outname.docx  /inout/results
 fi
 
     # convert it to pdf
 if [[ $savedOut == *"p"* ]]; then
     libreoffice --headless --convert-to pdf /inout/$outname.docx  && \
-    cp $outname.pdf /inout
+    cp $outname.pdf /inout/results
 fi
 done
-mkdir /inout/logs
-cp *.log /inout/logs
+mkdir /inout/results/logs
+cp *.log /inout/results/logs
