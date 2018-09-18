@@ -13,9 +13,6 @@ clinicalreporting_docxtemplater /opt/vep/clinicalreporting_docxtemplater
 Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
-%environment
-PERL5LIB /opt/vep/loftee-0.3-beta/:$PERL5LIB
-
 %post
 # download plugin and fixing VEP base version 93. 
 cd /opt/vep/src/ensembl-vep
@@ -50,6 +47,7 @@ wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \
 
 # this is required for loftee-0.3-beta
 cpanm DBD::SQLite
+PERL5LIB /opt/vep/loftee-0.3-beta/:$PERL5LIB
 
 # install packages for clinicalreporting_docxtemplater
 cd /opt/vep/clinicalreporting_docxtemplater && \
