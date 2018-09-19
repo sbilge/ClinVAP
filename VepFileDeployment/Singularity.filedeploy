@@ -9,6 +9,7 @@ Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
+chmod -R u+rwX /opt
 cd /opt/vep
 chmod +x copy_data.sh
 chmod +x /opt/vep/src/ensembl-vep/INSTALL.pl
