@@ -15,9 +15,9 @@ Version V93
 
 %post
 # download plugin and fixing VEP base version 93.
-chmod 777 /opt
+mkdir /opt/vep/.vep/Plugins
 cd /opt/vep/src/ensembl-vep
-./INSTALL.pl -n -a p -g LoFtool
+su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" vep
 
 # install R 
 sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list' && \
@@ -57,7 +57,7 @@ npm install
 cd /opt/vep && \
 chmod +x make_report.sh reporting.R
 
-# put ini file in its default location woth its default name
+## put ini file in its default location woth its default name
 mv vep_docker.ini  vep.ini && \
 mv vep.ini /opt/vep/.vep
 
