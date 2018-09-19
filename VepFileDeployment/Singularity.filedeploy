@@ -9,18 +9,9 @@ Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
-# getting VEP base version 93. 
-su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -c /opt --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37" vep
-
-cd /opt/vep
-wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz
-wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz.fai
-wget https://raw.githubusercontent.com/Ensembl/VEP_plugins/release/90/LoFtool_scores.txt
-wget https://www.broadinstitute.org/%7Ekonradk/loftee/phylocsf.sql.gz && \
-gunzip phylocsf.sql.gz
-
 cd /opt/vep
 chmod +x copy_data.sh
+chmod +x /opt/vep/src/ensembl-vep/INSTALL.pl
 
 %runscript
 cd /opt/vep
