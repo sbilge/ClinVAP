@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -e /mnt/homo_sapiens ]; then
-    cp -r /opt/vep/homo_sapiens /mnt
+    cp -r /opt/homo_sapiens /mnt
 fi
 
 for file in human_ancestor.fa.rz human_ancestor.fa.rz.fai LoFtool_scores.txt phylocsf.sql; do
