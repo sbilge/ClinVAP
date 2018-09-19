@@ -9,7 +9,7 @@ Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
-# get VEP base version 93. 
+# getting VEP base version 93. 
 cd /opt/vep/src/ensembl-vep
 git pull && \
 git checkout release/93 
