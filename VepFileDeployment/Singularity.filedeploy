@@ -16,7 +16,6 @@ git checkout release/93
 
 cd /opt/vep
 chmod +x copy_data.sh
-chmod +x /opt/vep/src/ensembl-vep/INSTALL.pl
 
 %runscript
 cd /opt/vep
