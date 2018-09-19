@@ -16,6 +16,7 @@ Version V93
 %post
 # download plugin and fixing VEP base version 93.
 mkdir -p /opt/vep/.vep/Plugins
+chmod 777 /opt/vep/.vep/Plugins
 cd /opt/vep/src/ensembl-vep
 su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" vep
 
