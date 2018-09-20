@@ -10,6 +10,8 @@ Version V93
 
 %post
 cd /opt/vep
+mkdir -p /opt/vep/.vep/homo_sapiens
+chmod 777 /opt/vep/.vep/homo_sapiens
 chmod +x copy_data.sh /opt/vep/src/ensembl-vep/INSTALL.pl
 
 %runscript
