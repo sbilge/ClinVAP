@@ -9,11 +9,10 @@ Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
-mkdir -p /opt/vep/.vep/homo_sapiens 
-chmod 777 /opt/vep
-chmod +x /opt/vep/copy_data.sh /opt/vep/src/ensembl-vep/INSTALL.pl
+mkdir -p /opt/vep/.vep/homo_sapiens /opt/vep/.vep/Bio
 su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -c /opt/vep/.vep -d /opt/vep/.vep --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37" vep
 
+chmod +x /opt/vep/copy_data.sh
 %runscript
 cd /opt/vep
 ./copy_data.sh

@@ -13,7 +13,7 @@ if [ -f docker.flag ]; then
 else
     cd /mnt
 #    perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -c /mnt -d /mnt --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37 &&\
-    cp /opt/vep/.vep/homo_sapiens /mnt
+#    cp /opt/vep/.vep/homo_sapiens /mnt
     wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz
     wget http://www.broadinstitute.org/~konradk/loftee/human_ancestor.fa.rz.fai
     wget https://raw.githubusercontent.com/Ensembl/VEP_plugins/release/90/LoFtool_scores.txt
