@@ -12,8 +12,8 @@ copy_data.sh /opt/vep
 mkdir /opt/cache_api_fasta
 chmod -R 777 /opt/cache_api_fasta
 
-export PERL5LIB=$PERL5LIB:/opt/cache_api_fasta
-export PATH=$PATH:/opt/cache_api_fasta
+export PERL5LIB=/opt/cache_api_fasta:$PERL5LIB
+export PATH=/opt/cache_api_fasta:$PATH
 
 su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -c /opt/cache_api_fasta -d /opt/cache_api_fasta --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37" vep
 
