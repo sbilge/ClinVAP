@@ -11,14 +11,12 @@ copy_data.sh /opt/vep
 %post
 mkdir /opt/cache_api_fasta 
 chmod -R 777 /opt 
-chmod +x /opt/vep/src/ensembl-vep/INSTALL.pl
+cd /opt/vep/src/ensembl-vep
 
-export PERL5LIB=/opt/cache_api_fasta:$PERL5LIB
-export PATH=/opt/cache_api_fasta:$PATH
-
-perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -c /opt/cache_api_fasta -d /opt/cache_api_fasta --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37
+./INSTALL.pl -n  --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37
 
 chmod +x /opt/vep/copy_data.sh
+
 %runscript
 cd /opt/vep
 ./copy_data.sh
