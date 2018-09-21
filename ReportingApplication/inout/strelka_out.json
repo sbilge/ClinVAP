@@ -1,0 +1,2457 @@
+{
+"patient_firstname":"",
+"patient_lastname":"",
+"patient_dateofbirth":"",
+"patient_diagnosis_short":"",
+"mutation_load":"",
+"mutation_ns_snv":"",
+"mutation_affected_oncogenes":"",
+"mutation_affected_tumorsupressorgenes":"",
+"mutation_hla_type":"",
+"mutation_additional_information":"",
+"mskdg":[
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Confidence": 4,
+    "References": "1,2,3,4"
+  },
+  {
+    "Gene": "SF3B1",
+    "Mutation": "p.Pro718Leu",
+    "Confidence": 3,
+    "References": "1,2,4"
+  },
+  {
+    "Gene": "DLEC1",
+    "Mutation": "p.Asp215Asn",
+    "Confidence": 2,
+    "References": "3,5"
+  },
+  {
+    "Gene": "FAM46C",
+    "Mutation": "p.Thr209Asn",
+    "Confidence": 2,
+    "References": "1,4"
+  },
+  {
+    "Gene": "GLI1",
+    "Mutation": "p.Ser1094Phe",
+    "Confidence": 2,
+    "References": "3,5"
+  },
+  {
+    "Gene": "HSP90AA1",
+    "Mutation": "p.His612Asn",
+    "Confidence": 2,
+    "References": "1,4"
+  },
+  {
+    "Gene": "RPS6KA2",
+    "Mutation": "p.Glu319Lys",
+    "Confidence": 2,
+    "References": "3,5"
+  },
+  {
+    "Gene": "TP63",
+    "Mutation": "p.Met499Ile",
+    "Confidence": 2,
+    "References": "1,5"
+  },
+  {
+    "Gene": "ACHE",
+    "Mutation": "p.Thr95Ile",
+    "Confidence": 1,
+    "References": "5"
+  },
+  {
+    "Gene": "CNTRL",
+    "Mutation": "p.Gln2033Lys",
+    "Confidence": 1,
+    "References": "1"
+  },
+  {
+    "Gene": "EPHB4",
+    "Mutation": "p.Pro346Leu",
+    "Confidence": 1,
+    "References": "5"
+  },
+  {
+    "Gene": "ETV5",
+    "Mutation": "p.Tyr445Cys",
+    "Confidence": 1,
+    "References": "1"
+  },
+  {
+    "Gene": "LPP",
+    "Mutation": "p.Ala119Gly",
+    "Confidence": 1,
+    "References": "1"
+  },
+  {
+    "Gene": "MADD",
+    "Mutation": "p.Ser1620Phe",
+    "Confidence": 1,
+    "References": "5"
+  },
+  {
+    "Gene": "PABPC3",
+    "Mutation": "p.Gly234Arg",
+    "Confidence": 1,
+    "References": "4"
+  },
+  {
+    "Gene": "PCSK5",
+    "Mutation": "p.Cys747Tyr",
+    "Confidence": 1,
+    "References": "4"
+  },
+  {
+    "Gene": "RAD51B",
+    "Mutation": "p.Arg385Lys",
+    "Confidence": 1,
+    "References": "1"
+  },
+  {
+    "Gene": "ROBO2",
+    "Mutation": "p.Ala16Val",
+    "Confidence": 1,
+    "References": "4"
+  },
+  {
+    "Gene": "TNPO1",
+    "Mutation": "p.Gln38His",
+    "Confidence": 1,
+    "References": "4"
+  }
+],
+"ptp_da":[
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "sorafenib",
+    "Confidence": 9,
+    "References": "6,7,8,9,10,11,12,13,14"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "dabrafenib",
+    "Confidence": 4,
+    "References": "12,14,15"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "vemurafenib",
+    "Confidence": 4,
+    "References": "12,14,16,17"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "regorafenib",
+    "Confidence": 3,
+    "References": "12,18"
+  },
+  {
+    "Gene": "TNFRSF8",
+    "Mutation": "p.Pro215Ser",
+    "Therapy": "brentuximab vedotin",
+    "Confidence": 2,
+    "References": "12,19"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "gsk2118436",
+    "Confidence": 1,
+    "References": "14"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "Therapy": "r7204",
+    "Confidence": 1,
+    "References": "14"
+  },
+  {
+    "Gene": "EPHB4",
+    "Mutation": "p.Pro346Leu",
+    "Therapy": "vandetanib",
+    "Confidence": 1,
+    "References": "12"
+  },
+  {
+    "Gene": "KCNH2",
+    "Mutation": "p.Leu468Phe",
+    "Therapy": "amsacrine",
+    "Confidence": 1,
+    "References": "20"
+  }
+],
+"ptp_ia":[
+  {
+    "Gene": "BRAF",
+    "Mutation": "AGK-BRAF",
+    "Therapy": "Sorafenib",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "38"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "AGK-BRAF",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "38"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "AMPLIFICATION",
+    "Therapy": "Panitumumab,Dabrafenib",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "C",
+    "References": "49"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "BRAF-CUL1",
+    "Therapy": "MEK Inhibitor",
+    "Disease": "Ovarian Serous Carcinoma",
+    "Evidence": "C",
+    "References": "46"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "D594A",
+    "Therapy": "MEK Inhibitor,Sorafenib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "E",
+    "References": "77"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "D594G",
+    "Therapy": "Cetuximab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "C",
+    "References": "52"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "D594G",
+    "Therapy": "Sorafenib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "D",
+    "References": "75"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "D594V",
+    "Therapy": "Sorafenib,Trametinib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "E",
+    "References": "77"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "DEL 485-490",
+    "Therapy": "LY3009120",
+    "Disease": "Cancer",
+    "Evidence": "D",
+    "References": "66"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "G469E",
+    "Therapy": "Sorafenib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "D",
+    "References": "75"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "G469E",
+    "Therapy": "U0126",
+    "Disease": "Skin Melanoma",
+    "Evidence": "D",
+    "References": "75"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "G596C",
+    "Therapy": "Dabrafenib,Trametinib",
+    "Disease": "Non-small Cell Lung Carcinoma",
+    "Evidence": "D",
+    "References": "72"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "K483M",
+    "Therapy": "Sorafenib,MEK Inhibitor",
+    "Disease": "Skin Melanoma",
+    "Evidence": "E",
+    "References": "77"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "K601E",
+    "Therapy": "Trametinib,Vemurafenib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "D",
+    "References": "69"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "KIAA1549-BRAF",
+    "Therapy": "Sorafenib,Bevacizumab,Temsirolimus",
+    "Disease": "Sarcoma",
+    "Evidence": "C",
+    "References": "47"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "KIAA1549-BRAF",
+    "Therapy": "Trametinib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "C",
+    "References": "44"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "L505H",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "29"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "L505H",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "70"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "L597Q",
+    "Therapy": "Vemurafenib,Trametinib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "D",
+    "References": "69"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "L597R",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "39"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "L597R",
+    "Therapy": "Vemurafenib,Trametinib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "D",
+    "References": "69"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "L597S",
+    "Therapy": "Vemurafenib,Trametinib",
+    "Disease": "Skin Melanoma",
+    "Evidence": "D",
+    "References": "69"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "MUTATION",
+    "Therapy": "Bevacizumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "35"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "MUTATION",
+    "Therapy": "Cetuximab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "35"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "MUTATION",
+    "Therapy": "Cetuximab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "71"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "MUTATION",
+    "Therapy": "Irinotecan",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "35"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "MUTATION",
+    "Therapy": "Oxaliplatin",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "35"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "MUTATION",
+    "Therapy": "Trametinib",
+    "Disease": "Cancer",
+    "Evidence": "D",
+    "References": "63"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "PAPSS1-BRAF",
+    "Therapy": "Trametinib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "62"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "PAPSS1-BRAF",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "62"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "TRIM24-BRAF",
+    "Therapy": "Trametinib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "62"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600",
+    "Therapy": "BAY 86-9766",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "41"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600",
+    "Therapy": "Dabrafenib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "28"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600",
+    "Therapy": "Dabrafenib,Trametinib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "22"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600",
+    "Therapy": "Panitumumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "21"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600",
+    "Therapy": "RO4987655",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "26"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600",
+    "Therapy": "Vemurafenib",
+    "Disease": "Cholangiocarcinoma",
+    "Evidence": "B",
+    "References": "33"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600D",
+    "Therapy": "Dabrafenib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "23"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600D",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "73,74"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Bevacizumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "32"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "BEZ235 (NVP-BEZ235, Dactolisib),GDC-0879",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "68"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "BEZ235 (NVP-BEZ235, Dactolisib),Selumetinib (AZD6244)",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "64"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Capecitabine,Vemurafenib,Bevacizumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "61"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Cetuximab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "25"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Cobimetinib",
+    "Disease": "Cancer",
+    "Evidence": "D",
+    "References": "65"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Dabrafenib",
+    "Disease": "Non-small Cell Lung Carcinoma",
+    "Evidence": "C",
+    "References": "37"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Dabrafenib,Trametinib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "24"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Dabrafenib,Trametinib DMSO",
+    "Disease": "Cholangiocarcinoma",
+    "Evidence": "C",
+    "References": "53,55"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Panitumumab,Irinotecan,Vemurafenib",
+    "Disease": "Cholangiocarcinoma",
+    "Evidence": "C",
+    "References": "56"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Pictilisib",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "40"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "PLX4720,GDC0941",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "59"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "PLX4720,Nutlin-3",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "60"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Sorafenib,Panitumumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "57"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Trametinib DMSO,Dabrafenib",
+    "Disease": "Cholangiocarcinoma",
+    "Evidence": "C",
+    "References": "54"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "C",
+    "References": "34"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "61"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Ganglioglioma",
+    "Evidence": "C",
+    "References": "50"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Laryngeal Squamous Cell Carcinoma",
+    "Evidence": "C",
+    "References": "34"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "27,30"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "58"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Multiple Myeloma",
+    "Evidence": "C",
+    "References": "48"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Ovarian Cancer",
+    "Evidence": "B",
+    "References": "34"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Ovarian Cystadenocarcinoma",
+    "Evidence": "C",
+    "References": "51"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Papillary Thyroid Carcinoma",
+    "Evidence": "C",
+    "References": "43"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib,Cetuximab,Irinotecan",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "31"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib,Gefitinib,Cetuximab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "67"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib,Panitumumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "C",
+    "References": "45"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E AMPLIFICATION",
+    "Therapy": "Selumetinib (AZD6244)",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "E",
+    "References": "76"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E+V600M",
+    "Therapy": "Dabrafenib",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "36"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600K",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "27"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600K",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "42"
+  }
+],
+"mskpe":[
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Bevacizumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "32"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Cetuximab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "25"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Dabrafenib,Trametinib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "24"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "B",
+    "References": "27,30"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Ovarian Cancer",
+    "Evidence": "B",
+    "References": "34"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib,Cetuximab,Irinotecan",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "B",
+    "References": "31"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Dabrafenib",
+    "Disease": "Non-small Cell Lung Carcinoma",
+    "Evidence": "C",
+    "References": "37"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Dabrafenib,Trametinib DMSO",
+    "Disease": "Cholangiocarcinoma",
+    "Evidence": "C",
+    "References": "53,55"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Panitumumab,Irinotecan,Vemurafenib",
+    "Disease": "Cholangiocarcinoma",
+    "Evidence": "C",
+    "References": "56"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Pictilisib",
+    "Disease": "Melanoma",
+    "Evidence": "C",
+    "References": "40"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Trametinib DMSO,Dabrafenib",
+    "Disease": "Cholangiocarcinoma",
+    "Evidence": "C",
+    "References": "54"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "C",
+    "References": "34"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Ganglioglioma",
+    "Evidence": "C",
+    "References": "50"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Laryngeal Squamous Cell Carcinoma",
+    "Evidence": "C",
+    "References": "34"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Multiple Myeloma",
+    "Evidence": "C",
+    "References": "48,48"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Ovarian Cystadenocarcinoma",
+    "Evidence": "C",
+    "References": "51"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Papillary Thyroid Carcinoma",
+    "Evidence": "C",
+    "References": "43"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib,Panitumumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "C",
+    "References": "45"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "BEZ235 (NVP-BEZ235, Dactolisib),GDC-0879",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "68"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "BEZ235 (NVP-BEZ235, Dactolisib),Selumetinib (AZD6244)",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "64"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Capecitabine,Vemurafenib,Bevacizumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "61"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Cobimetinib",
+    "Disease": "Cancer",
+    "Evidence": "D",
+    "References": "65"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "PLX4720,GDC0941",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "59"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "PLX4720,Nutlin-3",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "60"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Sorafenib,Panitumumab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "57"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "61"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib",
+    "Disease": "Melanoma",
+    "Evidence": "D",
+    "References": "58"
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "V600E",
+    "Therapy": "Vemurafenib,Gefitinib,Cetuximab",
+    "Disease": "Colorectal Cancer",
+    "Evidence": "D",
+    "References": "67"
+  }
+],
+"ref":[
+  {
+    "rowid": 1,
+    "citation": "Futreal et al., A census of human cancer genes., Nature reviews. Cancer, 4, 3, 2004"
+  },
+  {
+    "rowid": 2,
+    "citation": "Vogelstein et al., Cancer genome landscapes., Science (New York, N.Y.), 339, 6127, 2013"
+  },
+  {
+    "rowid": 3,
+    "citation": "Apweiler et al., UniProt: the Universal Protein knowledgebase., Nucleic acids research, 32, Database issue, 2004"
+  },
+  {
+    "rowid": 4,
+    "citation": "Rubio et al., In silico prescription of anticancer drugs to cohorts of 28 tumor types reveals targeting opportunities., Cancer cell, 27, 3, 2015"
+  },
+  {
+    "rowid": 5,
+    "citation": "Zhao et al., TSGene: a web resource for tumor suppressor genes., Nucleic acids research, 41, Database issue, 2013"
+  },
+  {
+    "rowid": 6,
+    "citation": "Flaherty et al., Chemotherapy and targeted therapy combinations in advanced melanoma., Clinical cancer research : an official journal of the American Association for Cancer Research, 12, 7 Pt 2, 2006"
+  },
+  {
+    "rowid": 7,
+    "citation": "Haluska et al., Therapeutic targets in melanoma: map kinase pathway., Current oncology reports, 8, 5, 2006"
+  },
+  {
+    "rowid": 8,
+    "citation": "Kim et al., Sorafenib inhibits the angiogenesis and growth of orthotopic anaplastic thyroid carcinoma xenografts in nude mice., Molecular cancer therapeutics, 6, 6, 2007"
+  },
+  {
+    "rowid": 9,
+    "citation": "Eisen et al., Sorafenib in advanced melanoma: a Phase II randomised discontinuation trial analysis., British journal of cancer, 95, 5, 2006"
+  },
+  {
+    "rowid": 10,
+    "citation": "Lu et al., Sorafenib induces growth inhibition and apoptosis of human chondrosarcoma cells by blocking the RAF/ERK/MEK pathway., Journal of surgical oncology, 102, 7, 2010"
+  },
+  {
+    "rowid": 11,
+    "citation": "Chen et al., TTD: Therapeutic Target Database., Nucleic acids research, 30, 1, 2002"
+  },
+  {
+    "rowid": 12,
+    "citation": "Santos et al., A comprehensive map of molecular drug targets., Nature reviews. Drug discovery, 16, 1, 2017"
+  },
+  {
+    "rowid": 13,
+    "citation": "Wilhelm et al., BAY 43-9006 exhibits broad spectrum oral antitumor activity and targets the RAF/MEK/ERK pathway and receptor tyrosine kinases involved in tumor progression and angiogenesis., Cancer research, 64, 19, 2004"
+  },
+  {
+    "rowid": 15,
+    "citation": "Gibney et al., Clinical development of dabrafenib in BRAF mutant melanoma and other malignancies., Expert opinion on drug metabolism &amp; toxicology, 9, 7, 2013"
+  },
+  {
+    "rowid": 16,
+    "citation": "Jordan et al., Vemurafenib  for the treatment of melanoma., Expert opinion on pharmacotherapy, 13, 17, 2012"
+  },
+  {
+    "rowid": 17,
+    "citation": "Wang et al., Conformation-specific effects of Raf kinase inhibitors., Journal of medicinal chemistry, 55, 17, 2012"
+  },
+  {
+    "rowid": 18,
+    "citation": "Zambon et al., Small molecule inhibitors of BRAF in clinical trials., Bioorganic &amp; medicinal chemistry letters, 22, 2, 2012"
+  },
+  {
+    "rowid": 19,
+    "citation": "Francisco et al., cAC10-vcMMAE, an anti-CD30-monomethyl auristatin E conjugate with potent and selective antitumor activity., Blood, 102, 4, 2003"
+  },
+  {
+    "rowid": 20,
+    "citation": "Thomas et al., Inhibition of cardiac HERG currents by the DNA topoisomerase II inhibitor amsacrine: mode of action., British journal of pharmacology, 142, 3, 2004"
+  },
+  {
+    "rowid": 21,
+    "citation": "Peeters et al., Massively parallel tumor multigene sequencing to evaluate response to panitumumab in a randomized phase III study of metastatic colorectal cancer., Clinical cancer research : an official journal of the American Association for Cancer Research, 19, 7, 2013"
+  },
+  {
+    "rowid": 22,
+    "citation": "Flaherty et al., Combined BRAF and MEK inhibition in melanoma with BRAF V600 mutations., The New England journal of medicine, 367, 18, 2012"
+  },
+  {
+    "rowid": 23,
+    "citation": "Ponti et al., The somatic affairs of BRAF: tailored therapies for advanced malignant melanoma and orphan non-V600E (V600R-M) mutations., Journal of clinical pathology, 66, 5, 2013"
+  },
+  {
+    "rowid": 24,
+    "citation": "Menzies et al., Dabrafenib and trametinib, alone and in combination for BRAF-mutant metastatic melanoma., Clinical cancer research : an official journal of the American Association for Cancer Research, 20, 8, 2014"
+  },
+  {
+    "rowid": 25,
+    "citation": "De et al., Effects of KRAS, BRAF, NRAS, and PIK3CA mutations on the efficacy of cetuximab plus chemotherapy in chemotherapy-refractory metastatic colorectal cancer: a retrospective consortium analysis., The Lancet. Oncology, 11, 8, 2010"
+  },
+  {
+    "rowid": 26,
+    "citation": "Zimmer et al., Phase I expansion and pharmacodynamic study of the oral MEK inhibitor RO4987655 (CH4987655) in selected patients with advanced cancer with RAS-RAF mutations., Clinical cancer research : an official journal of the American Association for Cancer Research, 20, 16, 2014"
+  },
+  {
+    "rowid": 27,
+    "citation": "McArthur et al., Safety and efficacy of vemurafenib in BRAF(V600E) and BRAF(V600K) mutation-positive melanoma (BRIM-3): extended follow-up of a phase 3, randomised, open-label study., The Lancet. Oncology, 15, 3, 2014"
+  },
+  {
+    "rowid": 28,
+    "citation": "Falchook et al., Dabrafenib in patients with melanoma, untreated brain metastases, and other solid tumours: a phase 1 dose-escalation trial., Lancet (London, England), 379, 9829, 2012"
+  },
+  {
+    "rowid": 29,
+    "citation": "Hoogstraat et al., Detailed imaging and genetic analysis reveal a secondary BRAF(L505H) resistance mutation and extensive intrapatient heterogeneity in metastatic BRAF mutant melanoma patients treated with vemurafenib., Pigment cell &amp; melanoma research, 28, 3, 2015"
+  },
+  {
+    "rowid": 30,
+    "citation": "Flaherty et al., Inhibition of mutated, activated BRAF in metastatic melanoma., The New England journal of medicine, 363, 9, 2010"
+  },
+  {
+    "rowid": 31,
+    "citation": "Hong et al., Phase IB Study of Vemurafenib in Combination with Irinotecan and Cetuximab in Patients with Metastatic Colorectal Cancer with BRAFV600E Mutation., Cancer discovery, 6, 12, 2016"
+  },
+  {
+    "rowid": 32,
+    "citation": "Tol et al., BRAF mutation in metastatic colorectal cancer., The New England journal of medicine, 361, 1, 2009"
+  },
+  {
+    "rowid": 33,
+    "citation": "Hyman et al., Vemurafenib in Multiple Nonmelanoma Cancers with BRAF V600 Mutations., The New England journal of medicine, 373, 8, 2015"
+  },
+  {
+    "rowid": 34,
+    "citation": "Hainsworth et al., Targeted Therapy for Advanced Solid Tumors on the Basis of Molecular Profiles: Results From MyPathway, an Open-Label, Phase IIa Multiple Basket Study., Journal of clinical oncology : official journal of the American Society of Clinical Oncology, 36, 6, 2018"
+  },
+  {
+    "rowid": 35,
+    "citation": "Souglakos et al., Prognostic and predictive value of common mutations for treatment response and survival in patients with metastatic colorectal cancer., British journal of cancer, 101, 3, 2009"
+  },
+  {
+    "rowid": 36,
+    "citation": "Ponti et al., Overwhelming response to Dabrafenib in a patient with double BRAF mutation (V600E; V600M) metastatic malignant melanoma., Journal of hematology &amp; oncology, 5, , 2012"
+  },
+  {
+    "rowid": 37,
+    "citation": "Rudin et al., Molecular characterization of acquired resistance to the BRAF inhibitor dabrafenib in a patient with BRAF-mutant non-small-cell lung cancer., Journal of thoracic oncology : official publication of the International Association for the Study of Lung Cancer, 8, 5, 2013"
+  },
+  {
+    "rowid": 38,
+    "citation": "Botton et al., Recurrent BRAF kinase fusions in melanocytic tumors offer an opportunity for targeted therapy., Pigment cell &amp; melanoma research, 26, 6, 2013"
+  },
+  {
+    "rowid": 39,
+    "citation": "Bahadoran et al., Major clinical response to a BRAF inhibitor in a patient with a BRAF L597R-mutated melanoma., Journal of clinical oncology : official journal of the American Society of Clinical Oncology, 31, 19, 2013"
+  },
+  {
+    "rowid": 40,
+    "citation": "Sarker et al., First-in-human phase I study of pictilisib (GDC-0941), a potent pan-class I phosphatidylinositol-3-kinase (PI3K) inhibitor, in patients with advanced solid tumors., Clinical cancer research : an official journal of the American Association for Cancer Research, 21, 1, 2015"
+  },
+  {
+    "rowid": 41,
+    "citation": "Weekes et al., Multicenter phase I trial of the mitogen-activated protein kinase 1/2 inhibitor BAY 86-9766 in patients with advanced cancer., Clinical cancer research : an official journal of the American Association for Cancer Research, 19, 5, 2013"
+  },
+  {
+    "rowid": 42,
+    "citation": "Sahadudheen et al., Long Term Survival and Continued Complete Response of Vemurafenib in a Metastatic Melanoma Patient with BRAF V600K Mutation., Case reports in oncological medicine, 2016, , 2016"
+  },
+  {
+    "rowid": 43,
+    "citation": "Ali et al., Extended Antitumor Response of a BRAF V600E Papillary Thyroid Carcinoma to Vemurafenib., Case reports in oncology, 7, 2, 2014"
+  },
+  {
+    "rowid": 44,
+    "citation": "Menzies et al., Clinical activity of the MEK inhibitor trametinib in metastatic melanoma containing BRAF kinase fusion., Pigment cell &amp; melanoma research, 28, 5, 2015"
+  },
+  {
+    "rowid": 45,
+    "citation": "Pietrantonio et al., MET-Driven Resistance to Dual EGFR and BRAF Blockade May Be Overcome by Switching from EGFR to MET Inhibition in BRAF-Mutated Colorectal Cancer., Cancer discovery, 6, 9, 2016"
+  },
+  {
+    "rowid": 46,
+    "citation": "Grisham et al., Extreme Outlier Analysis Identifies Occult Mitogen-Activated Protein Kinase Pathway Mutations in Patients With Low-Grade Serous Ovarian Cancer., Journal of clinical oncology : official journal of the American Society of Clinical Oncology, 33, 34, 2015"
+  },
+  {
+    "rowid": 47,
+    "citation": "Subbiah et al., Targeted therapy by combined inhibition of the RAF and mTOR kinases in malignant spindle cell neoplasm harboring the KIAA1549-BRAF fusion protein., Journal of hematology &amp; oncology, 7, , 2014"
+  },
+  {
+    "rowid": 48,
+    "citation": "Sharman et al., Vemurafenib response in 2 patients with posttransplant refractory BRAF V600E-mutated multiple myeloma., Clinical lymphoma, myeloma &amp; leukemia, 14, 5, 2014"
+  },
+  {
+    "rowid": 49,
+    "citation": "Ahronian et al., Clinical Acquired Resistance to RAF Inhibitor Combinations in BRAF-Mutant Colorectal Cancer through MAPK Pathway Alterations., Cancer discovery, 5, 4, 2015"
+  },
+  {
+    "rowid": 50,
+    "citation": "del et al., Response of recurrent BRAFV600E mutated ganglioglioma to Vemurafenib as single agent., Journal of translational medicine, 12, , 2014"
+  },
+  {
+    "rowid": 51,
+    "citation": "Combe et al., Sustained response to vemurafenib in a low grade serous ovarian cancer with a BRAF V600E mutation., Investigational new drugs, 33, 6, 2015"
+  },
+  {
+    "rowid": 52,
+    "citation": "Hsu et al., Mutations of KRAS/NRAS/BRAF predict cetuximab resistance in metastatic colorectal cancer patients., Oncotarget, 7, 16, 2016"
+  },
+  {
+    "rowid": 53,
+    "citation": "Kocsis et al., Combined dabrafenib and trametinib treatment in a case of chemotherapy-refractory extrahepatic BRAF V600E mutant cholangiocarcinoma: dramatic clinical and radiological response with a confusing synchronic new liver lesion., Journal of gastrointestinal oncology, 8, 2, 2017"
+  },
+  {
+    "rowid": 54,
+    "citation": "Lavingia et al., Impressive response to dual &lt;i&gt;BRAF&lt;/i&gt; and MEK inhibition in patients with BRAF mutant intrahepatic cholangiocarcinoma-2 case reports and a brief review., Journal of gastrointestinal oncology, 7, 6, 2016"
+  },
+  {
+    "rowid": 55,
+    "citation": "Loaiza et al., Dramatic response to dabrafenib and trametinib combination in a BRAF V600E-mutated cholangiocarcinoma: implementation of a molecular tumour board and next-generation sequencing for personalized medicine., Ecancermedicalscience, 8, , 2014"
+  },
+  {
+    "rowid": 56,
+    "citation": "Silkin et al., Complete Clinical Response of BRAF-Mutated Cholangiocarcinoma to Vemurafenib, Panitumumab, and Irinotecan., Journal of gastrointestinal cancer, 47, 4, 2016"
+  },
+  {
+    "rowid": 57,
+    "citation": "Di et al., Wild-type BRAF is required for response to panitumumab or cetuximab in metastatic colorectal cancer., Journal of clinical oncology : official journal of the American Society of Clinical Oncology, 26, 35, 2008"
+  },
+  {
+    "rowid": 58,
+    "citation": "Nissan et al., Loss of NF1 in cutaneous melanoma is associated with RAS activation and MEK dependence., Cancer research, 74, 8, 2014"
+  },
+  {
+    "rowid": 59,
+    "citation": "Rad et al., A genetic progression model of Braf(V600E)-induced intestinal tumorigenesis reveals targets for therapeutic intervention., Cancer cell, 24, 1, 2013"
+  },
+  {
+    "rowid": 60,
+    "citation": "Ji et al., Vemurafenib synergizes with nutlin-3 to deplete survivin and suppresses melanoma viability and tumor growth., Clinical cancer research : an official journal of the American Association for Cancer Research, 19, 16, 2013"
+  },
+  {
+    "rowid": 61,
+    "citation": "Yang et al., Antitumor activity of BRAF inhibitor vemurafenib in preclinical models of BRAF-mutant colorectal cancer., Cancer research, 72, 3, 2012"
+  },
+  {
+    "rowid": 62,
+    "citation": "Hutchinson et al., BRAF fusions define a distinct molecular subset of melanomas with potential sensitivity to MEK inhibition., Clinical cancer research : an official journal of the American Association for Cancer Research, 19, 24, 2013"
+  },
+  {
+    "rowid": 63,
+    "citation": "Jing et al., Comprehensive predictive biomarker analysis for MEK inhibitor GSK1120212., Molecular cancer therapeutics, 11, 3, 2012"
+  },
+  {
+    "rowid": 64,
+    "citation": "Penna et al., Primary cross-resistance to BRAFV600E-, MEK1/2- and PI3K/mTOR-specific inhibitors in BRAF-mutant melanoma cells counteracted by dual pathway blockade., Oncotarget, 7, 4, 2016"
+  },
+  {
+    "rowid": 65,
+    "citation": "Hatzivassiliou et al., Mechanism of MEK inhibition determines efficacy in mutant KRAS- versus BRAF-driven cancers., Nature, 501, 7466, 2013"
+  },
+  {
+    "rowid": 66,
+    "citation": "Chen et al., Oncogenic BRAF Deletions That Function as Homodimers and Are Sensitive to Inhibition by RAF Dimer Inhibitor LY3009120., Cancer discovery, 6, 3, 2016"
+  },
+  {
+    "rowid": 67,
+    "citation": "Prahallad et al., Unresponsiveness of colon cancer to BRAF(V600E) inhibition through feedback activation of EGFR., Nature, 483, 7387, 2012"
+  },
+  {
+    "rowid": 68,
+    "citation": "Coffee et al., Concomitant BRAF and PI3K/mTOR blockade is required for effective treatment of BRAF(V600E) colorectal cancer., Clinical cancer research : an official journal of the American Association for Cancer Research, 19, 10, 2013"
+  },
+  {
+    "rowid": 69,
+    "citation": "Dahlman et al., BRAF(L597) mutations in melanoma are associated with sensitivity to MEK inhibitors., Cancer discovery, 2, 9, 2012"
+  },
+  {
+    "rowid": 70,
+    "citation": "Wagenaar et al., Resistance to vemurafenib resulting from a novel mutation in the BRAFV600E kinase domain., Pigment cell &amp; melanoma research, 27, 1, 2014"
+  },
+  {
+    "rowid": 71,
+    "citation": "Bertotti et al., A molecularly annotated platform of patient-derived xenografts (\"xenopatients\") identifies HER2 as an effective therapeutic target in cetuximab-resistant colorectal cancer., Cancer discovery, 1, 6, 2011"
+  },
+  {
+    "rowid": 72,
+    "citation": "NA et al., NA, NA, NA, NA, NA"
+  },
+  {
+    "rowid": 73,
+    "citation": "Tsai et al., Discovery of a selective inhibitor of oncogenic B-Raf kinase with potent antimelanoma activity., Proceedings of the National Academy of Sciences of the United States of America, 105, 8, 2008"
+  },
+  {
+    "rowid": 74,
+    "citation": "Yang et al., RG7204 (PLX4032), a selective BRAFV600E inhibitor, displays potent antitumor activity in preclinical melanoma models., Cancer research, 70, 13, 2010"
+  },
+  {
+    "rowid": 75,
+    "citation": "Smalley et al., CRAF inhibition induces apoptosis in melanoma cells with non-V600E BRAF mutations., Oncogene, 28, 1, 2009"
+  },
+  {
+    "rowid": 76,
+    "citation": "Corcoran et al., BRAF gene amplification can promote acquired resistance to MEK inhibitors in cancer cells harboring the BRAF V600E mutation., Science signaling, 3, 149, 2010"
+  },
+  {
+    "rowid": 77,
+    "citation": "Heidorn et al., Kinase-dead BRAF and oncogenic RAS cooperate to drive tumor progression through CRAF., Cell, 140, 2, 2010"
+  }
+],
+"appendix":[
+  {
+    "Gene": "TNFRSF8",
+    "Mutation": "p.Pro215Ser",
+    "dbSNP": ["rs267597959"],
+    "COSMIC": ["COSM14024"]
+  },
+  {
+    "Gene": "KIAA0319L",
+    "Mutation": "p.Pro278Ser",
+    "dbSNP": ["rs267598576"],
+    "COSMIC": ["COSM36587"]
+  },
+  {
+    "Gene": "FAM46C",
+    "Mutation": "p.Thr209Asn",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "S100A7A",
+    "Mutation": "p.Gly98Trp",
+    "dbSNP": ["rs267598049"],
+    "COSMIC": ["COSM36721"]
+  },
+  {
+    "Gene": "PKLR",
+    "Mutation": "p.Gly251Ser",
+    "dbSNP": ["rs267598065"],
+    "COSMIC": ["COSM36782"]
+  },
+  {
+    "Gene": "SMG5",
+    "Mutation": "p.Pro549Leu",
+    "dbSNP": ["rs267598072"],
+    "COSMIC": ["COSM21714"]
+  },
+  {
+    "Gene": "MAEL",
+    "Mutation": "p.Ser431Cys",
+    "dbSNP": ["rs267598149"],
+    "COSMIC": ["COSM36684"]
+  },
+  {
+    "Gene": "ZBTB41",
+    "Mutation": "p.Phe164Val",
+    "dbSNP": ["rs267598277"],
+    "COSMIC": ["COSM36692"]
+  },
+  {
+    "Gene": "LMOD1",
+    "Mutation": "p.Glu188Lys",
+    "dbSNP": ["rs267598302"],
+    "COSMIC": ["COSM36838"]
+  },
+  {
+    "Gene": "SYT14",
+    "Mutation": "p.Ser437Phe",
+    "dbSNP": ["rs267598356"],
+    "COSMIC": ["COSM36786"]
+  },
+  {
+    "Gene": "OBSCN",
+    "Mutation": "p.Ala4609Thr",
+    "dbSNP": ["rs267598401"],
+    "COSMIC": ["COSM21034", "COSM36848"]
+  },
+  {
+    "Gene": "OR2T8",
+    "Mutation": "p.Met197Arg",
+    "dbSNP": ["rs4474294"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "OR2T3",
+    "Mutation": "p.Ala214Thr",
+    "dbSNP": ["rs1770109"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "SLC4A5",
+    "Mutation": "p.Ser428Phe",
+    "dbSNP": ["rs111392973"],
+    "COSMIC": ["COSM2999241", "COSM2999242"]
+  },
+  {
+    "Gene": "SLC4A5",
+    "Mutation": "p.Ser428Thr",
+    "dbSNP": ["rs267599454"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "SNRNP200",
+    "Mutation": "p.Arg1538Cys",
+    "dbSNP": ["rs267599495"],
+    "COSMIC": ["COSM36589"]
+  },
+  {
+    "Gene": "SEMA4C",
+    "Mutation": "p.Arg407Trp",
+    "dbSNP": ["rs267599501"],
+    "COSMIC": ["COSM36666"]
+  },
+  {
+    "Gene": "ANKRD36",
+    "Mutation": "p.Ser1120Cys",
+    "dbSNP": ["rs768768868"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "KIAA1211L",
+    "Mutation": "p.Gly746Glu",
+    "dbSNP": ["rs866719486"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "IL1RL1",
+    "Mutation": "p.Glu294Lys",
+    "dbSNP": ["rs267598807"],
+    "COSMIC": ["COSM36680"]
+  },
+  {
+    "Gene": "DPP10",
+    "Mutation": "p.Ile93Asn",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "AMER3",
+    "Mutation": "p.Ala276Asp",
+    "dbSNP": ["rs267598874"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "NXPH2",
+    "Mutation": "p.Pro64Ser",
+    "dbSNP": ["rs267598905"],
+    "COSMIC": ["COSM36843"]
+  },
+  {
+    "Gene": "XIRP2",
+    "Mutation": "p.Gly127Arg",
+    "dbSNP": ["rs267598980"],
+    "COSMIC": ["COSM36673"]
+  },
+  {
+    "Gene": "TTN",
+    "Mutation": "p.Pro10904Ser",
+    "dbSNP": ["rs267599054"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "TTN",
+    "Mutation": "p.Ala1347Thr",
+    "dbSNP": ["rs267599092"],
+    "COSMIC": ["COSM2708938", "COSM2708939", "COSM2708940", "COSM2708941", "COSM2708942"]
+  },
+  {
+    "Gene": "SF3B1",
+    "Mutation": "p.Pro718Leu",
+    "dbSNP": ["rs267599150"],
+    "COSMIC": ["COSM36655"]
+  },
+  {
+    "Gene": "FZD7",
+    "Mutation": "p.Pro285Ser",
+    "dbSNP": ["rs267599158"],
+    "COSMIC": ["COSM24315"]
+  },
+  {
+    "Gene": "ZDBF2",
+    "Mutation": "p.Gly575Arg",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "AGFG1",
+    "Mutation": "p.Gly364Arg",
+    "dbSNP": ["rs267599235"],
+    "COSMIC": ["COSM25632", "COSM3364621", "COSM3364622"]
+  },
+  {
+    "Gene": "SLC16A14",
+    "Mutation": "p.Glu247Lys",
+    "dbSNP": ["rs267599250"],
+    "COSMIC": ["COSM36712"]
+  },
+  {
+    "Gene": "ARL4C",
+    "Mutation": "p.Gly71Ser",
+    "dbSNP": ["rs61752230"],
+    "COSMIC": ["COSM21657"]
+  },
+  {
+    "Gene": "SH3BP4",
+    "Mutation": "p.Ala890Val",
+    "dbSNP": ["rs267599278"],
+    "COSMIC": ["COSM36639"]
+  },
+  {
+    "Gene": "RNPEPL1",
+    "Mutation": "p.Asp186Asn",
+    "dbSNP": ["rs267599287"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "KIF1A",
+    "Mutation": "p.Ser141Ala",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "DLEC1",
+    "Mutation": "p.Asp215Asn",
+    "dbSNP": ["rs149190717"],
+    "COSMIC": ["COSM1566798", "COSM36702"]
+  },
+  {
+    "Gene": "SLC22A13",
+    "Mutation": "p.Ser32Phe",
+    "dbSNP": ["rs267599783"],
+    "COSMIC": ["COSM36695"]
+  },
+  {
+    "Gene": "MYRIP",
+    "Mutation": "p.Pro572Ser",
+    "dbSNP": ["rs267599820"],
+    "COSMIC": ["COSM36739"]
+  },
+  {
+    "Gene": "VPRBP",
+    "Mutation": "p.Pro309Leu",
+    "dbSNP": ["rs267599884"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "TLR9",
+    "Mutation": "p.Gly514Ser",
+    "dbSNP": ["rs267599888"],
+    "COSMIC": ["COSM36649"]
+  },
+  {
+    "Gene": "ROBO2",
+    "Mutation": "p.Ala16Val",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "CMSS1",
+    "Mutation": "p.Val156Ile",
+    "dbSNP": ["rs200457602"],
+    "COSMIC": ["COSM36607"]
+  },
+  {
+    "Gene": "SIDT1",
+    "Mutation": "p.Met221Ile",
+    "dbSNP": ["rs267599548"],
+    "COSMIC": ["COSM36653"]
+  },
+  {
+    "Gene": "PRR23C",
+    "Mutation": "p.Glu262Lys",
+    "dbSNP": ["rs759730911"],
+    "COSMIC": ["COSM36858"]
+  },
+  {
+    "Gene": "CLSTN2",
+    "Mutation": "p.Gln262His",
+    "dbSNP": ["rs267599628"],
+    "COSMIC": ["COSM36631"]
+  },
+  {
+    "Gene": "SAMD7",
+    "Mutation": "p.Arg67Trp",
+    "dbSNP": ["rs191885635"],
+    "COSMIC": ["COSM36663"]
+  },
+  {
+    "Gene": "GNB4",
+    "Mutation": "p.Pro107Leu",
+    "dbSNP": ["rs267599699"],
+    "COSMIC": ["COSM13667"]
+  },
+  {
+    "Gene": "ETV5",
+    "Mutation": "p.Tyr445Cys",
+    "dbSNP": ["rs267599722"],
+    "COSMIC": ["COSM23333"]
+  },
+  {
+    "Gene": "LPP",
+    "Mutation": "p.Ala119Gly",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "TP63",
+    "Mutation": "p.Met499Ile",
+    "dbSNP": ["rs267599730"],
+    "COSMIC": ["COSM23541"]
+  },
+  {
+    "Gene": "MUC4",
+    "Mutation": "p.Pro1056His",
+    "dbSNP": ["rs753583962"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "EXOC1",
+    "Mutation": "p.Pro774Ser",
+    "dbSNP": ["rs267600192"],
+    "COSMIC": ["COSM36662"]
+  },
+  {
+    "Gene": "REST",
+    "Mutation": "p.Pro752Thr",
+    "dbSNP": ["rs267600197"],
+    "COSMIC": ["COSM24349"]
+  },
+  {
+    "Gene": "SMR3B",
+    "Mutation": "p.Arg58Lys",
+    "dbSNP": ["rs267600235"],
+    "COSMIC": ["COSM1310225", "COSM36745"]
+  },
+  {
+    "Gene": "SMARCAD1",
+    "Mutation": "p.Val890Asp",
+    "dbSNP": ["rs267600302"],
+    "COSMIC": ["COSM13923"]
+  },
+  {
+    "Gene": "ADAM29",
+    "Mutation": "p.Gly589Glu",
+    "dbSNP": ["rs267600094"],
+    "COSMIC": ["COSM26290"]
+  },
+  {
+    "Gene": "CARD6",
+    "Mutation": "p.Leu638Phe",
+    "dbSNP": ["rs267600630"],
+    "COSMIC": ["COSM14006"]
+  },
+  {
+    "Gene": "TNPO1",
+    "Mutation": "p.Gln38His",
+    "dbSNP": ["rs267600680"],
+    "COSMIC": ["COSM36775", "COSM5648790"]
+  },
+  {
+    "Gene": "F2RL2",
+    "Mutation": "p.Leu141Phe",
+    "dbSNP": ["rs267600693"],
+    "COSMIC": ["COSM27249", "COSM36780"]
+  },
+  {
+    "Gene": "VCAN",
+    "Mutation": "p.Asp203Asn",
+    "dbSNP": ["rs267600718"],
+    "COSMIC": ["COSM36758"]
+  },
+  {
+    "Gene": "EDIL3",
+    "Mutation": "p.Gln187Lys",
+    "dbSNP": ["rs267600722"],
+    "COSMIC": ["COSM26295"]
+  },
+  {
+    "Gene": "PCDHB7",
+    "Mutation": "p.Asp374His",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "GRIA1",
+    "Mutation": "p.Gly828Glu",
+    "dbSNP": ["rs267600500"],
+    "COSMIC": ["COSM36714", "COSM4854071", "COSM4854072"]
+  },
+  {
+    "Gene": "ADAM19",
+    "Mutation": "p.Pro900Leu",
+    "dbSNP": ["rs61757467"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "MBOAT1",
+    "Mutation": "p.Lys293Asn",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "VARS2",
+    "Mutation": "p.Val234Ala",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "STK19",
+    "Mutation": "p.Asp89Asn",
+    "dbSNP": ["rs267600971"],
+    "COSMIC": ["COSM226579"]
+  },
+  {
+    "Gene": "HLA-DOA",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "SPDEF",
+    "Mutation": "p.Asp283His",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "SPDEF",
+    "Mutation": "p.Ser229Leu",
+    "dbSNP": ["rs200344679"],
+    "COSMIC": ["COSM36760"]
+  },
+  {
+    "Gene": "SCUBE3",
+    "Mutation": "p.Gly702Glu",
+    "dbSNP": ["rs267600995"],
+    "COSMIC": ["COSM36691"]
+  },
+  {
+    "Gene": "BTBD9",
+    "Mutation": "p.Arg46Cys",
+    "dbSNP": ["rs267601008"],
+    "COSMIC": ["COSM36793"]
+  },
+  {
+    "Gene": "DNAH8",
+    "Mutation": "p.Arg1085Gln",
+    "dbSNP": ["rs267601013"],
+    "COSMIC": ["COSM3077055", "COSM3626601", "COSM36781"]
+  },
+  {
+    "Gene": "GUCA1B",
+    "Mutation": "p.Gly120Glu",
+    "dbSNP": ["rs139823805"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "TTBK1",
+    "Mutation": "p.Pro855Ser",
+    "dbSNP": ["rs267601046"],
+    "COSMIC": ["COSM21040"]
+  },
+  {
+    "Gene": "GPR111",
+    "Mutation": "p.Ile290Leu",
+    "dbSNP": ["rs267601055"],
+    "COSMIC": ["COSM36619"]
+  },
+  {
+    "Gene": "BAI3",
+    "Mutation": "p.Asp755Asn",
+    "dbSNP": ["rs267601102"],
+    "COSMIC": ["COSM22119"]
+  },
+  {
+    "Gene": "EPB41L2",
+    "Mutation": "p.Pro568Ser",
+    "dbSNP": ["rs144342263"],
+    "COSMIC": ["COSM36576"]
+  },
+  {
+    "Gene": "KATNA1",
+    "Mutation": "p.Pro241Leu",
+    "dbSNP": ["rs267600852"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "KATNA1",
+    "Mutation": "p.Pro241Ser",
+    "dbSNP": ["rs267600853"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "RPS6KA2",
+    "Mutation": "p.Glu319Lys",
+    "dbSNP": ["rs267600891"],
+    "COSMIC": ["COSM21036", "COSM3024932", "COSM3024933"]
+  },
+  {
+    "Gene": "EVX1",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "NPSR1",
+    "Mutation": "p.Asp11His",
+    "dbSNP": ["rs267601495"],
+    "COSMIC": ["COSM3228516", "COSM3228517", "COSM36651", "COSM4362160", "COSM4362161"]
+  },
+  {
+    "Gene": "ANLN",
+    "Mutation": "p.Gln649Arg",
+    "dbSNP": ["rs267601502"],
+    "COSMIC": ["COSM36632"]
+  },
+  {
+    "Gene": "ABCA13",
+    "Mutation": "p.Gly4948Asp",
+    "dbSNP": ["rs267601533"],
+    "COSMIC": ["COSM36817"]
+  },
+  {
+    "Gene": "EPHB4",
+    "Mutation": "p.Pro346Leu",
+    "dbSNP": ["rs267601191"],
+    "COSMIC": ["COSM21032"]
+  },
+  {
+    "Gene": "ACHE",
+    "Mutation": "p.Thr95Ile",
+    "dbSNP": ["rs267601193"],
+    "COSMIC": ["COSM36706"]
+  },
+  {
+    "Gene": "RELN",
+    "Mutation": "p.Glu331Lys",
+    "dbSNP": ["rs267601217"],
+    "COSMIC": ["COSM36731", "COSM3876866"]
+  },
+  {
+    "Gene": "BRAF",
+    "Mutation": "p.Val600Glu",
+    "dbSNP": ["rs113488022"],
+    "COSMIC": ["COSM18443", "COSM476", "COSM6137"]
+  },
+  {
+    "Gene": "RP11-1220K2.2",
+    "Mutation": "p.Asp1426Glu",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "ZNF862",
+    "Mutation": "p.Gln583Lys",
+    "dbSNP": ["rs267601404"],
+    "COSMIC": ["COSM36833"]
+  },
+  {
+    "Gene": "KCNH2",
+    "Mutation": "p.Leu468Phe",
+    "dbSNP": ["rs267601414"],
+    "COSMIC": ["COSM36578"]
+  },
+  {
+    "Gene": "NAT2",
+    "Mutation": "p.Glu264Lys",
+    "dbSNP": ["rs267601842"],
+    "COSMIC": ["COSM36677"]
+  },
+  {
+    "Gene": "ADRA1A",
+    "Mutation": "p.Val311Ile",
+    "dbSNP": ["rs267601877"],
+    "COSMIC": ["COSM2787551", "COSM2787552", "COSM2787553", "COSM36671"]
+  },
+  {
+    "Gene": "SCARA5",
+    "Mutation": "p.Glu270Lys",
+    "dbSNP": ["rs267601883"],
+    "COSMIC": ["COSM36713"]
+  },
+  {
+    "Gene": "GPR124",
+    "Mutation": "p.Glu863Lys",
+    "dbSNP": ["rs267601912"],
+    "COSMIC": ["COSM36641"]
+  },
+  {
+    "Gene": "MCM4",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "BHLHE22",
+    "Mutation": "p.Ser227Gly",
+    "dbSNP": ["rs62519838"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "REXO1L1P",
+    "Mutation": "p.Ser639Phe",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "CNGB3",
+    "Mutation": "p.Glu64Gly",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "CNBD1",
+    "Mutation": "p.Leu135Arg",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "GRHL2",
+    "Mutation": "p.Ser356Phe",
+    "dbSNP": ["rs267601682"],
+    "COSMIC": ["COSM36601"]
+  },
+  {
+    "Gene": "OC90",
+    "Mutation": "p.Lys257Glu",
+    "dbSNP": ["rs267601777"],
+    "COSMIC": ["COSM23378", "COSM36839"]
+  },
+  {
+    "Gene": "ZC3H3",
+    "Mutation": "p.Ser879Phe",
+    "dbSNP": ["rs267601811"],
+    "COSMIC": ["COSM36642"]
+  },
+  {
+    "Gene": "DMRT2",
+    "Mutation": "p.Pro470Ser",
+    "dbSNP": ["rs267602063"],
+    "COSMIC": ["COSM36855"]
+  },
+  {
+    "Gene": "ANKRD18A",
+    "Mutation": "p.Glu654Lys",
+    "dbSNP": ["rs267602244"],
+    "COSMIC": ["COSM36859"]
+  },
+  {
+    "Gene": "PCSK5",
+    "Mutation": "p.Cys747Tyr",
+    "dbSNP": ["rs267602276"],
+    "COSMIC": ["COSM36640"]
+  },
+  {
+    "Gene": "ZNF367",
+    "Mutation": "p.Asn12Lys",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "NUTM2G",
+    "Mutation": "p.Gly36Asp",
+    "dbSNP": ["rs267602327"],
+    "COSMIC": ["COSM36612"]
+  },
+  {
+    "Gene": "CYLC2",
+    "Mutation": "p.Asp167Asn",
+    "dbSNP": ["rs267602064"],
+    "COSMIC": ["COSM36727"]
+  },
+  {
+    "Gene": "PTBP3",
+    "Mutation": "p.Pro43Leu",
+    "dbSNP": ["rs267602088"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "PTBP3",
+    "Mutation": "p.Pro43Ser",
+    "dbSNP": ["rs267602089"],
+    "COSMIC": ["COSM36676", "COSM4463186"]
+  },
+  {
+    "Gene": "CNTRL",
+    "Mutation": "p.Gln2033Lys",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "OR1J1",
+    "Mutation": "p.Leu157Phe",
+    "dbSNP": ["rs267602118"],
+    "COSMIC": ["COSM36710"]
+  },
+  {
+    "Gene": "OR1J2",
+    "Mutation": "p.Leu260Phe",
+    "dbSNP": ["rs267602119"],
+    "COSMIC": ["COSM36753"]
+  },
+  {
+    "Gene": "GAPVD1",
+    "Mutation": "p.Leu35Phe",
+    "dbSNP": ["rs267602131"],
+    "COSMIC": ["COSM36617"]
+  },
+  {
+    "Gene": "ADAMTS13",
+    "Mutation": "p.Arg398His",
+    "dbSNP": ["rs121908471"],
+    "COSMIC": ["COSM36777"]
+  },
+  {
+    "Gene": "LHX3",
+    "Mutation": "p.Gly92Glu",
+    "dbSNP": [],
+    "COSMIC": ["COSM36599"]
+  },
+  {
+    "Gene": "KIAA1217",
+    "Mutation": "p.Ser925Ala",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "OR52A1",
+    "Mutation": "p.Leu152Ile",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "OTOG",
+    "Mutation": "p.Pro1482Ser",
+    "dbSNP": ["rs267602806"],
+    "COSMIC": ["COSM36821"]
+  },
+  {
+    "Gene": "MPPED2",
+    "Mutation": "p.Leu81Phe",
+    "dbSNP": ["rs267602842"],
+    "COSMIC": ["COSM36672"]
+  },
+  {
+    "Gene": "MADD",
+    "Mutation": "p.Ser1620Phe",
+    "dbSNP": ["rs267602903"],
+    "COSMIC": ["COSM26934"]
+  },
+  {
+    "Gene": "OR4S2",
+    "Mutation": "p.Arg120Cys",
+    "dbSNP": ["rs267602971"],
+    "COSMIC": ["COSM36685"]
+  },
+  {
+    "Gene": "TNKS1BP1",
+    "Mutation": "p.Pro291Ser",
+    "dbSNP": ["rs267603015"],
+    "COSMIC": ["COSM36722"]
+  },
+  {
+    "Gene": "OR4D11",
+    "Mutation": "p.Pro58Ala",
+    "dbSNP": ["rs267603040"],
+    "COSMIC": ["COSM36624"]
+  },
+  {
+    "Gene": "SLC22A8",
+    "Mutation": "p.Asn450Ser",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "SPTBN2",
+    "Mutation": "p.Glu2047Lys",
+    "dbSNP": ["rs201985455"],
+    "COSMIC": ["COSM36751", "COSM4199893"]
+  },
+  {
+    "Gene": "GRM5",
+    "Mutation": "p.Glu941Lys",
+    "dbSNP": ["rs267603229"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "DCP1B",
+    "Mutation": "p.Pro98Ser",
+    "dbSNP": ["rs267603408"],
+    "COSMIC": ["COSM36575"]
+  },
+  {
+    "Gene": "KCNA6",
+    "Mutation": "p.Pro514Ser",
+    "dbSNP": ["rs267603494"],
+    "COSMIC": ["COSM36724"]
+  },
+  {
+    "Gene": "CD163",
+    "Mutation": "p.Pro310Leu",
+    "dbSNP": ["rs267603681"],
+    "COSMIC": ["COSM36725"]
+  },
+  {
+    "Gene": "GLI1",
+    "Mutation": "p.Ser1094Phe",
+    "dbSNP": ["rs267603606"],
+    "COSMIC": ["COSM24658"]
+  },
+  {
+    "Gene": "TBC1D30",
+    "Mutation": "p.Gly327Glu",
+    "dbSNP": ["rs267603627"],
+    "COSMIC": ["COSM36841"]
+  },
+  {
+    "Gene": "KCNC2",
+    "Mutation": "p.Leu298Ser",
+    "dbSNP": ["rs267603669"],
+    "COSMIC": ["COSM36754"]
+  },
+  {
+    "Gene": "RBM19",
+    "Mutation": "p.Glu115Lys",
+    "dbSNP": ["rs267603319"],
+    "COSMIC": ["COSM36748"]
+  },
+  {
+    "Gene": "PABPC3",
+    "Mutation": "p.Gly234Arg",
+    "dbSNP": ["rs267603790"],
+    "COSMIC": ["COSM36646"]
+  },
+  {
+    "Gene": "CPB2",
+    "Mutation": "p.Phe409Ser",
+    "dbSNP": ["rs267603833"],
+    "COSMIC": ["COSM36708"]
+  },
+  {
+    "Gene": "OXGR1",
+    "Mutation": "p.Gly22Val",
+    "dbSNP": ["rs267603871"],
+    "COSMIC": ["COSM1368119", "COSM36698"]
+  },
+  {
+    "Gene": "CARKD",
+    "Mutation": "p.Pro205Ser",
+    "dbSNP": ["rs267603758"],
+    "COSMIC": ["COSM36577"]
+  },
+  {
+    "Gene": "NOVA1",
+    "Mutation": "p.Ala256Asp",
+    "dbSNP": ["rs267603974"],
+    "COSMIC": ["COSM1369439", "COSM25331"]
+  },
+  {
+    "Gene": "ARHGAP5",
+    "Mutation": "p.Thr437Ile",
+    "dbSNP": ["rs56259828"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "RAD51B",
+    "Mutation": "p.Arg385Lys",
+    "dbSNP": ["rs267604035"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "SERPINA6",
+    "Mutation": "p.Arg282Leu",
+    "dbSNP": ["rs267604111"],
+    "COSMIC": ["COSM1265285", "COSM26307", "COSM267404"]
+  },
+  {
+    "Gene": "HSP90AA1",
+    "Mutation": "p.His612Asn",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "NUDT14",
+    "Mutation": "p.Thr44Pro",
+    "dbSNP": ["rs267603899"],
+    "COSMIC": ["COSM36696"]
+  },
+  {
+    "Gene": "TRPM1",
+    "Mutation": "p.Glu1261Lys",
+    "dbSNP": ["rs267604151"],
+    "COSMIC": ["COSM36625"]
+  },
+  {
+    "Gene": "PLIN1",
+    "Mutation": "p.Leu191Arg",
+    "dbSNP": [],
+    "COSMIC": ["COSM36595"]
+  },
+  {
+    "Gene": "PRC1",
+    "Mutation": "p.Gly507Glu",
+    "dbSNP": ["rs267604387"],
+    "COSMIC": ["COSM36743"]
+  },
+  {
+    "Gene": "AMDHD2",
+    "Mutation": "p.His587Arg",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "NLRC3",
+    "Mutation": "p.Gly454Arg",
+    "dbSNP": ["rs267604538"],
+    "COSMIC": ["COSM36804"]
+  },
+  {
+    "Gene": "DPEP2",
+    "Mutation": "p.Pro480Ser",
+    "dbSNP": ["rs267604603"],
+    "COSMIC": ["COSM36719"]
+  },
+  {
+    "Gene": "CCDC144A",
+    "Mutation": "p.Met803Ile",
+    "dbSNP": ["rs267604757"],
+    "COSMIC": ["COSM36830"]
+  },
+  {
+    "Gene": "MYO15A",
+    "Mutation": "p.Leu3152Phe",
+    "dbSNP": ["rs267604764"],
+    "COSMIC": ["COSM36737"]
+  },
+  {
+    "Gene": "C17orf50",
+    "dbSNP": ["rs267604816"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "TTLL6",
+    "Mutation": "p.Arg280Lys",
+    "dbSNP": ["rs267604932"],
+    "COSMIC": ["COSM36852"]
+  },
+  {
+    "Gene": "USH1G",
+    "Mutation": "p.Leu379Ser",
+    "dbSNP": ["rs267605044"],
+    "COSMIC": ["COSM36661"]
+  },
+  {
+    "Gene": "PSMA8",
+    "Mutation": "p.Gly36Glu",
+    "dbSNP": ["rs267605136"],
+    "COSMIC": ["COSM36586"]
+  },
+  {
+    "Gene": "MBD3",
+    "Mutation": "p.Asp283Asn",
+    "dbSNP": ["rs369581342"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "GTF2F1",
+    "Mutation": "p.Gly411Arg",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "MUC16",
+    "Mutation": "p.Met2821Ile",
+    "dbSNP": ["rs267605807"],
+    "COSMIC": ["COSM2701120", "COSM36853"]
+  },
+  {
+    "Gene": "MUC16",
+    "Mutation": "p.Leu2819Met",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "MUC16",
+    "Mutation": "p.Leu1434Ile",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "OLFM2",
+    "Mutation": "p.Arg58Gln",
+    "dbSNP": ["rs267605828"],
+    "COSMIC": ["COSM36654"]
+  },
+  {
+    "Gene": "PKN1",
+    "Mutation": "p.Arg191Cys",
+    "dbSNP": ["rs267605306"],
+    "COSMIC": ["COSM21035"]
+  },
+  {
+    "Gene": "CYP4F2",
+    "Mutation": "p.Arg149Gln",
+    "dbSNP": ["rs140630977"],
+    "COSMIC": ["COSM1129961"]
+  },
+  {
+    "Gene": "ZNF208",
+    "Mutation": "p.His855Tyr",
+    "dbSNP": ["rs267605385"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "ARHGAP33",
+    "Mutation": "p.Pro1068Leu",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "CYP2A13",
+    "Mutation": "p.Arg485Gln",
+    "dbSNP": ["rs267605496"],
+    "COSMIC": ["COSM36742"]
+  },
+  {
+    "Gene": "PSG1",
+    "Mutation": "p.Thr43Ile",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "NOSIP",
+    "Mutation": "p.Pro297Leu",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "ZNF614",
+    "Mutation": "p.Gly267Ser",
+    "dbSNP": ["rs267605628"],
+    "COSMIC": ["COSM36678"]
+  },
+  {
+    "Gene": "ZNF880",
+    "Mutation": "p.Pro169Gln",
+    "dbSNP": ["rs267605631"],
+    "COSMIC": ["COSM1234752"]
+  },
+  {
+    "Gene": "ZNF28",
+    "Mutation": "p.Ile572Thr",
+    "dbSNP": ["rs267605644"],
+    "COSMIC": ["COSM36679"]
+  },
+  {
+    "Gene": "ZSCAN5A",
+    "Mutation": "p.Ala179Thr",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "FLRT3",
+    "Mutation": "p.Ile532Asn",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "DLGAP4",
+    "Mutation": "p.Ala879Ser",
+    "dbSNP": ["rs267605913"],
+    "COSMIC": ["COSM36648"]
+  },
+  {
+    "Gene": "ZNF217",
+    "Mutation": "p.Pro651Ser",
+    "dbSNP": ["rs267606004"],
+    "COSMIC": ["COSM25218", "COSM2763526"]
+  },
+  {
+    "Gene": "SPO11",
+    "Mutation": "p.Gly88Ser",
+    "dbSNP": ["rs267606012"],
+    "COSMIC": ["COSM36690"]
+  },
+  {
+    "Gene": "TPTE",
+    "Mutation": "p.Asp545Asn",
+    "dbSNP": ["rs267606168"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "TMEM50B",
+    "Mutation": "p.Ser113Phe",
+    "dbSNP": ["rs267606110"],
+    "COSMIC": ["COSM36665"]
+  },
+  {
+    "Gene": "TRAPPC10",
+    "Mutation": "p.Gly983Asp",
+    "dbSNP": ["rs267606147"],
+    "COSMIC": ["COSM36726"]
+  },
+  {
+    "Gene": "CECR2",
+    "Mutation": "p.Gly474Arg",
+    "dbSNP": ["rs267606173"],
+    "COSMIC": ["COSM36851"]
+  },
+  {
+    "Gene": "IGLL5",
+    "Mutation": "p.Arg23Cys",
+    "dbSNP": ["rs382768"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "TRIOBP",
+    "Mutation": "p.Arg497Gln",
+    "dbSNP": ["rs755186518"],
+    "COSMIC": ["COSM36827"]
+  },
+  {
+    "Gene": "MEI1",
+    "Mutation": "p.Gly507Glu",
+    "dbSNP": ["rs267606261"],
+    "COSMIC": ["COSM36800"]
+  },
+  {
+    "Gene": "CELSR1",
+    "Mutation": "p.Leu2698Phe",
+    "dbSNP": [],
+    "COSMIC": ["COSM36703"]
+  },
+  {
+    "Gene": "NHS",
+    "Mutation": "p.Arg373Gln",
+    "dbSNP": ["rs267606412"],
+    "COSMIC": ["COSM1118631", "COSM36761"]
+  },
+  {
+    "Gene": "FGD1",
+    "Mutation": "p.Arg636Trp",
+    "dbSNP": [],
+    "COSMIC": ["COSM21850"]
+  },
+  {
+    "Gene": "PJA1",
+    "Mutation": "p.His586Tyr",
+    "dbSNP": ["rs267606501"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "OGT",
+    "Mutation": "p.Leu367Ser",
+    "dbSNP": [],
+    "COSMIC": []
+  },
+  {
+    "Gene": "DCAF12L1",
+    "Mutation": "p.Ser281Phe",
+    "dbSNP": ["rs267606338"],
+    "COSMIC": ["COSM36778"]
+  },
+  {
+    "Gene": "ZNF280C",
+    "Mutation": "p.His379Tyr",
+    "dbSNP": ["rs267606348"],
+    "COSMIC": []
+  },
+  {
+    "Gene": "PNMA3",
+    "Mutation": "p.Pro342Leu",
+    "dbSNP": ["rs267606390"],
+    "COSMIC": ["COSM36769"]
+  }
+]
+}
