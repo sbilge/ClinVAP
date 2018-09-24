@@ -53,7 +53,7 @@ if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   log4r::level(logger) <- 'ERROR'  
   log4r::error(logger, "Input file is not provided.")
   log4r::error(logger, "The proces is terminated.")
-  file.rename("base.log", "no_input.log"))
+  file.rename("base.log", "no_input.log")
   stop()
   #  stop("Please supply a valid input file")
 } else {

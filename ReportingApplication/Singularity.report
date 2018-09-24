@@ -45,7 +45,7 @@ Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAn
 #   rm v0.3-beta.zip && \
 #   cp loftee-0.3-beta/LoF.pm /opt/vep/.vep/Plugins
 
-## this is required for loftee-0.3-beta
+# this is required for loftee-0.3-beta
 # cpanm DBD::SQLite
 # export PERL5LIB=/opt/vep/loftee-0.3-beta/:$PERL5LIB
 ## PERL5LIB /opt/vep/loftee-0.3-beta/:$PERL5LIB
