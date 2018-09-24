@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: bilges/file_deploy:93
+From: ensemblorg/ensembl-vep:release_93
 
 %labels
 Maintainer sueruen@informatik.uni-tuebingen.de
@@ -9,11 +9,7 @@ Version V93
 copy_data.sh /opt/vep
 
 %post
-mkdir /opt/cache_api_fasta 
 chmod -R 777 /opt 
-cd /opt/vep/src/ensembl-vep
-
-./INSTALL.pl -n  --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37
 
 chmod +x /opt/vep/copy_data.sh
 
