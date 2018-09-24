@@ -9,8 +9,7 @@ Version V93
 copy_data.sh /opt/vep
 
 %post
-chmod -R 777 /opt 
-
+chmod -R 755 /opt/vep
 chmod +x /opt/vep/copy_data.sh
 
 %runscript
