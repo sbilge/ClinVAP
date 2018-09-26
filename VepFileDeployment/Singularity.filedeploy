@@ -15,7 +15,7 @@ export PERL5LIB PATH
 
 %post
 chmod -R 755 /opt/vep
-chmod +x /opt/vep/copy_data.sh
+#chmod +x /opt/vep/copy_data.sh
 
 %runscript
 cd /opt/vep
