@@ -8,8 +8,13 @@ Version V93
 %files
 copy_data.sh /opt/vep
 
+%environment
+PERL5LIB=/mnt
+PATH=/mnt/htslib
+export PERL5LIB PATH
+
 %post
-chmod -R 777 /opt/vep
+chmod -R 755 /opt/vep
 chmod +x /opt/vep/copy_data.sh
 
 %runscript
