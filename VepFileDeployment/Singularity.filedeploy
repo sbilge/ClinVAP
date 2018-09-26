@@ -8,13 +8,16 @@ Version V93
 %files
 copy_data.sh /opt/vep
 
-%environment
-export PERL5LIB=/mnt:$PERL5LIB
-export PATH=/mnt/htslib:$PATH
-
 %post
-chmod -R 755 /opt/vep
+cd $OPT
+su -c "mkdir $OPT/cache_api" vep
+chmod 755 -R $OPT/cache_api
 
+echo 'export PERL5LIB=$OPT/cache_api:$PERL5LIB' >> $SINGULARITY_ENVIRONMENT
+echo 'export PATH=$OPT/cache_api/htslib:$PATH' >> $SINGULARITY_ENVIRONMENT
+su -c "./INSTALL.pl -n -c $OPT/cache_api -d $OPT/cache_api  --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37" vep
+
+chmod +x $OPT/copy_data.sh
 
 %runscript
 cd /opt/vep
