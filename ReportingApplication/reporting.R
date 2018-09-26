@@ -60,7 +60,7 @@ if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   log4r::level(logger) <- 'INFO'
   messages = paste(opt$file, "is provided as input file")
   log4r::info(logger, messages)
-  file.rename("base.log", paste0(opt$file,"_base.log")
+  file.rename("base.log", paste0(opt$file,"_base.log"))
 }
 
 # checks of output file command-line option

@@ -10,12 +10,14 @@ copy_data.sh /opt/vep
 
 %post
 cd $OPT
-su -c "mkdir $OPT/cache_api" vep
+mkdir -p cache_api
 chmod 755 -R $OPT/cache_api
 
 echo 'export PERL5LIB=$OPT/cache_api:$PERL5LIB' >> $SINGULARITY_ENVIRONMENT
 echo 'export PATH=$OPT/cache_api/htslib:$PATH' >> $SINGULARITY_ENVIRONMENT
-su -c "./INSTALL.pl -n -c $OPT/cache_api -d $OPT/cache_api  --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37" vep
+
+cd $OPT/src/ensembl-vep
+./INSTALL.pl -n -c $OPT/cache_api -d $OPT/cache_api  --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37
 
 chmod +x $OPT/copy_data.sh
 

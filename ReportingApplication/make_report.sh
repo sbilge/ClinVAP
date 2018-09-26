@@ -51,5 +51,5 @@ if [[ $savedOut == *"p"* ]]; then
     cp $outname.pdf /inout/results
 fi
 done
-mkdir /inout/results/logs
+mkdir -p /inout/results/logs
 cp *.log /inout/results/logs
