@@ -9,17 +9,7 @@ Version V93
 copy_data.sh /opt/vep
 
 %post
-cd /opt/vep
-mkdir -p cache_api
-chmod 755 -R /opt/vep/cache_api
-
-echo 'export PERL5LIB=/opt/vep/cache_api:$PERL5LIB' >> $SINGULARITY_ENVIRONMENT
-echo 'export PATH=/opt/vep/cache_api/htslib:$PATH' >> $SINGULARITY_ENVIRONMENT
-
-cd /opt/vep/src/ensembl-vep
-./INSTALL.pl -n -c /opt/vep/cache_api -d /opt/vep/cache_api  --CACHE_VERSION 93 --VERSION 93 -a acf -s homo_sapiens -y GRCh37
-
-chmod +x /opt/vep/copy_data.sh
+chmod -R 777 /opt/vep
 
 %runscript
 cd /opt/vep
