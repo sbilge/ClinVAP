@@ -22,34 +22,36 @@ do
 outfilename=$(basename "$file")
 outname="${outfilename%.*}"
 
+mkdir -p /inout/results/logs
+
 # annotate file
 echo "################ Starting variant effect prediction ################"
-vep -i $file -o $outname.vcf --config /opt/vep/.vep/vep.ini 
+vep -i $file -o /tmp/$outname.vcf --config /opt/vep/.vep/vep.ini 
 
 # create report as json
 echo "################ Start to create json ################"
 if [ -f docker.flag ]; then # called by docker
-    Rscript /opt/vep/reporting.R -f $outname.vcf -r $outname.json
+    Rscript /opt/vep/reporting.R -f /tmp/$outname.vcf -r /tmp/$outname.json
 else
-    Rscript /opt/vep/reporting.R -f $outname.vcf -r $outname.json -d /opt/vep/driver_db_dump.json
+    Rscript /opt/vep/reporting.R -f /tmp/$outname.vcf -r /tmp/$outname.json -d /opt/vep/driver_db_dump.json
 fi
 
 if [[ $savedOut == *"j"* ]]; then
-    cp $outname.json /inout/results
+    cp /tmp/$outname.json /inout/results
     echo "JSON is saved to the volume"
 fi
 
 echo "################ Start to create report ################"
-nodejs /opt/vep/clinicalreporting_docxtemplater/main.js -d $outname.json -t /opt/vep/clinicalreporting_docxtemplater/data/template.docx -o $outname.docx
+nodejs /opt/vep/clinicalreporting_docxtemplater/main.js -d /tmp/$outname.json -t /opt/vep/clinicalreporting_docxtemplater/data/template.docx -o /tmp/$outname.docx
 if [[ $savedOut == *"w"* ]]; then
-    cp $outname.docx  /inout/results
+    cp /tmp/$outname.docx  /inout/results
 fi
 
     # convert it to pdf
 if [[ $savedOut == *"p"* ]]; then
-    libreoffice --headless --convert-to pdf /inout/$outname.docx  && \
-    cp $outname.pdf /inout/results
+    libreoffice --headless --convert-to pdf /tmp/$outname.docx  && \
+    cp /tmp/$outname.pdf /inout/results
 fi
 done
-mkdir -p /inout/results/logs
-cp *.log /inout/results/logs
+
+cp /tmp/*.log /inout/results/logs

@@ -11,6 +11,8 @@
 library(futile.logger)
 library(tryCatchLog)
 
+setwd("/tmp")
+
 # Create a new logger object.
 logger <- log4r::create.logger()
 # Set the logger's file output.
