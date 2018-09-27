@@ -39,15 +39,15 @@ Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAn
 
 
 # install LoFtool plugin
-cd /opt/vep
-wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \ 
-unzip v0.3-beta.zip && \
-rm v0.3-beta.zip && \
-cp loftee-0.3-beta/LoF.pm /opt/vep/.vep/Plugins
+#cd /opt/vep
+#wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \ 
+#unzip v0.3-beta.zip && \
+#rm v0.3-beta.zip && \
+#cp loftee-0.3-beta/LoF.pm /opt/vep/.vep/Plugins
 
 # this is required for loftee-0.3-beta
-cpanm DBD::SQLite
-echo 'export PERL5LIB=/opt/vep/loftee-0.3-beta/:$PERL5LIB' >> $SINGULARITY_ENVIRONMENT
+#cpanm DBD::SQLite
+#echo 'export PERL5LIB=/opt/vep/loftee-0.3-beta/:$PERL5LIB' >> $SINGULARITY_ENVIRONMENT
 
 # install packages for clinicalreporting_docxtemplater
 cd /opt/vep/clinicalreporting_docxtemplater && \
