@@ -11,16 +11,14 @@
 library(futile.logger)
 library(tryCatchLog)
 
-setwd("/tmp")
-
 # Create a new logger object.
 logger <- log4r::create.logger()
 # Set the logger's file output.
-log4r::logfile(logger) <- 'base.log'
+log4r::logfile(logger) <- '/tmp/base.log'
 
 # To get R's log messages
 
-flog.appender(appender.file('check_points.log'))
+flog.appender(appender.file('/tmp/check_points.log'))
 
 # packages are installed within the docker image. 
 tryCatchLog::tryLog({
@@ -55,14 +53,14 @@ if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   log4r::level(logger) <- 'ERROR'  
   log4r::error(logger, "Input file is not provided.")
   log4r::error(logger, "The proces is terminated.")
-  file.rename("base.log", "no_input.log")
+  file.rename("/tmp/base.log", "/tmp/no_input.log")
   stop()
   #  stop("Please supply a valid input file")
 } else {
   log4r::level(logger) <- 'INFO'
   messages = paste(opt$file, "is provided as input file")
   log4r::info(logger, messages)
-  file.rename("base.log", paste0(opt$file,"_base.log"))
+  file.rename("/tmp/base.log", paste0("/tmp/",opt$file,"_base.log"))
 }
 
 # checks of output file command-line option
