@@ -49,8 +49,7 @@ fi
 
     # convert it to pdf
 if [[ $savedOut == *"p"* ]]; then
-    libreoffice --headless --convert-to pdf /tmp/$outname.docx  && \
-    cp /tmp/$outname.pdf /inout/results
+    libreoffice --headless --convert-to pdf /tmp/$outname.docx  --outdir  /inout/results
 fi
 done
 
