@@ -63,4 +63,4 @@ mv vep.ini /opt/vep/.vep
 
 %runscript
 cd /opt/vep
-exec /bin/bash make_report.sh "$@"`
+exec /bin/bash make_report.sh "$@"
