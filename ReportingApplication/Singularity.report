@@ -62,7 +62,7 @@ mv vep_docker.ini  vep.ini && \
 mv vep.ini /opt/vep/.vep
 
 %runscript
-cd /opt/vep
-make_report.sh
-exec /bin/bash "$@"
+exec /bin/bash
+/opt/vep/make_report.sh "$@"
+
 
