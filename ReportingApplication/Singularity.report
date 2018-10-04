@@ -38,16 +38,16 @@ Rscript -e 'devtools::install_github("aryoda/tryCatchLog")'
 Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAnnotation", "rjson"), ask = FALSE, suppressUpdates = TRUE)'
 
 
-## install LoFtool plugin
-#cd /opt/vep
-#wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip && \ 
-#unzip v0.3-beta.zip && \
-#rm v0.3-beta.zip && \
-#cp loftee-0.3-beta/LoF.pm /opt/vep/.vep/Plugins
+# install LoFtool plugin
+cd /opt/vep
+wget https://github.com/konradjk/loftee/archive/v0.3-beta.zip 
+unzip v0.3-beta.zip
+rm v0.3-beta.zip
+cp loftee-0.3-beta/LoF.pm /opt/vep/.vep/Plugins
 
-## this is required for loftee-0.3-beta
-#cpanm DBD::SQLite
-#echo 'export PERL5LIB=/opt/vep/loftee-0.3-beta/:$PERL5LIB' >> $SINGULARITY_ENVIRONMENT
+# this is required for loftee-0.3-beta
+cpanm DBD::SQLite
+echo 'export PERL5LIB=/opt/vep/loftee-0.3-beta/:$PERL5LIB' >> $SINGULARITY_ENVIRONMENT
 
 # install packages for clinicalreporting_docxtemplater
 cd /opt/vep/clinicalreporting_docxtemplater && \
@@ -57,7 +57,7 @@ npm install
 cd /opt/vep && \
 chmod +x make_report.sh reporting.R
 
-## put ini file in its default location woth its default name
+## put ini file in its default location with its default name
 mv vep_docker.ini  vep.ini && \
 mv vep.ini /opt/vep/.vep
 
