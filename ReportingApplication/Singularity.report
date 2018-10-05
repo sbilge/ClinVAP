@@ -17,9 +17,8 @@ Version V93
 # download plugin and fixing VEP base version 93.
 mkdir -p /opt/vep/.vep/Plugins
 chmod 755 /opt/vep/.vep/Plugins
-useradd -r -m -U -d /opt/vep -s /bin/bash -c "VEP User" -p '' veplugin
-usermod -a -G sudo veplugin
-su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" veplugin
+usermod -a -G sudo vep
+su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" vep
 
 # install R 
 sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list' && \
