@@ -89,6 +89,8 @@ if (debug) {
   vcfFile <- "test.vcf"
 }
 
+print(vcfFile)
+
 ###################
 # update CiVIC data
 ###################
