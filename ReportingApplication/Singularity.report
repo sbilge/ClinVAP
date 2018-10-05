@@ -22,7 +22,7 @@ useradd -r -m -U -d /opt/plugin -s /bin/bash -c "VEP User" -p '' veplugin
 usermod -a -G sudo veplugin
 su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" veplugin
 
-ln -s /opt/plugin/.vep/Plugins /opt/vep/.vep/Plugins
+ln -s /opt/plugin/.vep /opt/vep/.vep/Plugins
 
 
 # install R 
