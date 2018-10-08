@@ -22,8 +22,8 @@ useradd -r -m -U -d /opt/plugin -s /bin/bash -c "VEP User" -p '' veplugin
 usermod -a -G sudo veplugin
 su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" veplugin
 
-ln -s /opt/plugin/.vep /opt/vep/.vep/Plugins
-
+cp /opt/plugin/.vep/Plugins/LoFtool.pm /opt/vep/.vep/Plugins
+cp /opt/plugin/.vep/Plugins/plugin_config.txt /opt/vep/.vep/Plugins
 
 # install R 
 sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list' && \
