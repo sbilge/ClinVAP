@@ -207,9 +207,17 @@ if (nrow(mvld) == 0) {
 # now query our annotation database for information on drugs and driver status for all genes occuring in the
 # mvld. Then create a relational schema for each with hgnc_id as our 'key', resulting in 3 tables, one each for genes, drivers, and drugs.
 
-db_baseurl = 'http://localhost:5000/biograph_genes?where={"hgnc_id":{"$in":["'
-querystring = URLencode(paste(db_baseurl, paste(unique(mvld$hgnc_id), collapse = '","'), '"]}}', sep=''))
-biograph_json <- as.tbl_json(getURL(querystring))
+if (is.null(dataFile)){
+     db_baseurl = 'http://localhost:5000/biograph_genes?where={"hgnc_id":{"$in":["'
+     querystring = URLencode(paste(db_baseurl, paste(unique(mvld$hgnc_id), collapse = '","'), '"]}}', sep=''))
+     biograph_json <- as.tbl_json(getURL(querystring))
+ } else {
+     db_result <- jsonlite::fromJSON(dataFile) %>%
+       dplyr::mutate(hgnc_id = as.integer(hgnc_id)) %>%
+       dplyr::semi_join(mvld, by = c("hgnc_id"))
+     db_res <- jsonlite::toJSON(db_result , dataframe = c("rows"), matrix = c("columnmajor"), pretty = TRUE)
+     biograph_json <- paste0("{","\n", '"_items":', db_res,"\n",'}')
+ }
 
 # get information on genes by hgnc_id
 biograph_genes <- biograph_json %>%
