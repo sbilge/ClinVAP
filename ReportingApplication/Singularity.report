@@ -14,7 +14,7 @@ Maintainer sueruen@informatik.uni-tuebingen.de
 Version V93
 
 %post
-# download plugin and fixing VEP base version 93.
+# download plugin and fixing VEP base version 93. 
 mkdir -p /opt/vep/.vep/Plugins
 chmod 755 /opt/vep/.vep/Plugins
 
