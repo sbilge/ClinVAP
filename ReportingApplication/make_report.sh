@@ -36,13 +36,13 @@ metadata=$(basename "$file")_metadata.json
 # create report as json
 echo "################ Start to create json ################"
 if [ -f docker.flag ]; then # called by docker
-    if [ ! -f $metadata]; then
+    if [ ! -f $metadata ]; then
         Rscript /opt/vep/reporting.R -f /tmp/$outname.vcf -r /tmp/$outname.json
     else
         Rscript /opt/vep/reporting.R -f /tmp/$outname.vcf -r /tmp/$outname.json -m $metadata
     fi
 else
-    if [ ! f $metadata]; then
+    if [ ! f $metadata ]; then
         Rscript /opt/vep/reporting.R -f /tmp/$outname.vcf -r /tmp/$outname.json -d /opt/vep/driver_db_dump.json
     else
         Rscript /opt/vep/reporting.R -f /tmp/$outname.vcf -r /tmp/$outname.json -d /opt/vep/driver_db_dump.json -m $metadata
