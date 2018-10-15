@@ -36,7 +36,8 @@ options(warn=1)
 option_list = list(
   optparse::make_option(c("-f", "--file"), type = "character", help = "the input file in vcf format", default = NULL),
   optparse::make_option(c("-r", "--report"), type = "character", help = "the file name for the detailed output report", default = NULL),
-  optparse::make_option(c("-d", "--database"), type="character", help="Where the MyDrug data is to be found. Required for Singularity only.", default=NULL)
+  optparse::make_option(c("-d", "--database"), type= "character", help= "Where the MyDrug data is to be found. Required for Singularity only.", default= NULL),
+  optparse::make_option(c("-m", "--metadata"), type = "character", help = "metadata json file, to integrate patient info into reulting json if present", default = NULL)
 )
 
 opt_parser <- optparse::OptionParser(option_list = option_list)
@@ -47,6 +48,7 @@ tryLog({
   vcfFile <- opt$file
   reportFile <- opt$report
 })
+
 #  checks of input VCF
 if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   optparse::print_help(opt_parser)
@@ -60,7 +62,9 @@ if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   log4r::level(logger) <- 'INFO'
   messages = paste(opt$file, "is provided as input file")
   log4r::info(logger, messages)
-  file.rename("/tmp/base.log", paste0(opt$file,"_base.log"))
+  new_log = paste0(opt$file,"_base.log")
+  file.rename("/tmp/base.log", new_log)
+  log4r::logfile(logger) <- new_log
 }
 
 # checks of output file command-line option
@@ -83,13 +87,20 @@ if (is.null(opt$database)) {
   log4r::info(logger, messages)
 }
 
+if (is.null(opt$metadata)) {
+  log4r::level(logger) <- 'INFO'
+  log4r::info(logger, "Patient metadata file is not found. Patient info table will be empty.")
+} else {
+  metaData <- opt$metadata
+  log4r::level(logger) <- 'INFO'
+  messages = paste(opt$metada, " is provided. It will be rendered into Patient info table")
+  log4r::info(logger, messages)
+}
 
 if (debug) {
   # Provide test file here
   vcfFile <- "test.vcf"
 }
-
-print(vcfFile)
 
 ###################
 # update CiVIC data
@@ -195,17 +206,10 @@ if (nrow(mvld) == 0) {
 
 # now query our annotation database for information on drugs and driver status for all genes occuring in the
 # mvld. Then create a relational schema for each with hgnc_id as our 'key', resulting in 3 tables, one each for genes, drivers, and drugs.
-if (is.null(opt$database)){
-    db_baseurl = 'http://localhost:5000/biograph_genes?where={"hgnc_id":{"$in":["'
-    querystring = URLencode(paste(db_baseurl, paste(unique(mvld$hgnc_id), collapse = '","'), '"]}}', sep=''))
-    biograph_json <- as.tbl_json(getURL(querystring))
-} else {
-    db_result <- jsonlite::fromJSON(dataFile) %>%
-      dplyr::mutate(hgnc_id = as.integer(hgnc_id)) %>%
-      dplyr::semi_join(mvld, by = c("hgnc_id"))
-    db_res <- jsonlite::toJSON(db_result , dataframe = c("rows"), matrix = c("columnmajor"), pretty = TRUE)
-    biograph_json <- paste0("{","\n", '"_items":', db_res,"\n",'}')
-}
+
+db_baseurl = 'http://localhost:5000/biograph_genes?where={"hgnc_id":{"$in":["'
+querystring = URLencode(paste(db_baseurl, paste(unique(mvld$hgnc_id), collapse = '","'), '"]}}', sep=''))
+biograph_json <- as.tbl_json(getURL(querystring))
 
 # get information on genes by hgnc_id
 biograph_genes <- biograph_json %>%
@@ -445,8 +449,36 @@ if (nrow(drug_variants)) {
 # Create an empty json object of patient data 
 # patient_info <- list(patient_firstname = "", patient_lastname = "", patient_dateofbirth = "", patient_diagnosis_short="", mutation_load="", mutation_ns_snv="", mutation_affected_oncogenes="", mutation_affected_tumorsupressorgenes="", mutation_hla_type="", mutation_additional_information="" )
 # patient_info_json <- jsonlite::toJSON(patient_info, prety = TRUE, auto_unbox = TRUE)
+#patient_info <- jsonlite::toJSON(jsonlite::fromJSON("metadata.json"), dataframe = c("rows"), matrix = c("columnmajor"), pretty = TRUE, auto_unbox = TRUE)
 
-patient_info <- paste0('"patient_firstname"',":",'"",',"\n",'"patient_lastname"',":",'"",',"\n",'"patient_dateofbirth"',":", '"",',"\n",'"patient_diagnosis_short"',":", '"",',"\n",'"mutation_load"',":", '"",',"\n",'"mutation_ns_snv"',":", '"",',"\n",'"mutation_affected_oncogenes"',":",'"",',"\n",'"mutation_affected_tumorsupressorgenes"',":", '"",',"\n",'"mutation_hla_type"',":", '"",',"\n",'"mutation_additional_information"',":",'""')
+
+if (is.null(opt$metadata)) {
+  patient_info_table <- paste0('"patient_firstname"',":",'"",',
+                         "\n",'"patient_lastname"',":",'"",',
+                         "\n",'"patient_dateofbirth"',":", '"",',
+                         "\n",'"patient_diagnosis_short"',":", '"",',
+                         "\n",'"mutation_load"',":", '"",',
+                         "\n",'"mutation_ns_snv"',":", '"",',
+                         "\n",'"mutation_affected_oncogenes"',":",'"",',
+                         "\n",'"mutation_affected_tumorsupressorgenes"',":", '"",',
+                         "\n",'"mutation_hla_type"',":", '"",',
+                         "\n",'"mutation_additional_information"',":",'""')
+} else {
+  # read metadata
+  patient_info <- jsonlite::fromJSON(opt$metadata)
+  # mimic the structure
+  patient_info_table <- paste0('"patient_firstname"',":",'"', patient_info$patient_firstname, '",', 
+                               "\n",'"patient_lastname"',":",'"', patient_info$patient_lastname, '",',
+                               "\n",'"patient_dateofbirth"',":", '"', patient_info$patient_dateofbirth, '",',
+                               "\n",'"patient_diagnosis_short"',":", '"', patient_info$patient_diagnosis_short, '",',
+                               "\n",'"mutation_load"',":", '"', patient_info$mutation_load, '",',
+                               "\n",'"mutation_ns_snv"',":", '"",',
+                               "\n",'"mutation_affected_oncogenes"',":",'"",',
+                               "\n",'"mutation_affected_tumorsupressorgenes"',":", '"",',
+                               "\n",'"mutation_hla_type"',":", '"",',
+                               "\n",'"mutation_additional_information"',":",'""')
+}
+
 
 lof_driver_json <- jsonlite::toJSON(lof_driver , dataframe = c("rows"), matrix = c("columnmajor"), pretty = TRUE)
 lof_variant_dt_table_direct_json <- jsonlite::toJSON(lof_variant_dt_table , dataframe = c("rows"), matrix = c("columnmajor"), pretty = TRUE)
@@ -456,7 +488,7 @@ references_table_json <- jsonlite::toJSON(references, dataframe = c("rows"), mat
 appendix_table_json <- jsonlite::toJSON(appendix, dataframe = c("rows"), matrix = c("columnmajor"), pretty = TRUE)
 
 # Merge tables into one 'report' json.
-report <- paste0("{","\n", patient_info, ',',"\n", '"mskdg":',lof_driver_json,',',"\n", '"ptp_da":',lof_variant_dt_table_direct_json,',',"\n",'"ptp_ia":',lof_civic_dt_table_indirect_json, ',',"\n", '"mskpe":',drug_variants_json,',',"\n",'"ref":',references_table_json,',',"\n",'"appendix":',appendix_table_json ,"\n",'}')
+report <- paste0("{","\n", patient_info_table, ',',"\n", '"mskdg":',lof_driver_json,',',"\n", '"ptp_da":',lof_variant_dt_table_direct_json,',',"\n",'"ptp_ia":',lof_civic_dt_table_indirect_json, ',',"\n", '"mskpe":',drug_variants_json,',',"\n",'"ref":',references_table_json,',',"\n",'"appendix":',appendix_table_json ,"\n",'}')
 writeLines(report, reportFile)
 if(file.exists(reportFile)) {
   message <- paste(reportFile, "is saved.")
