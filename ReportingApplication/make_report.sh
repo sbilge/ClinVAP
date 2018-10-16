@@ -31,7 +31,7 @@ echo "################ Starting variant effect prediction ################"
 vep -i $file -o /tmp/$outname.vcf --config /opt/vep/.vep/vep.ini 
 
 # check if there are any metadata for patient info
-metadata=$(basename "$file")_metadata.json
+metadata="${outname}"_metadata.json
 
 # create report as json
 echo "################ Start to create json ################"
