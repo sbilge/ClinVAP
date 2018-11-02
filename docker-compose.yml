@@ -27,14 +27,11 @@ services:
       volumes:
         - dependencyF:/data
         - ./ReportingApplication/inout:/inout
-      # entrypoint: /bin/bash
       network_mode: "host"
       depends_on:
         - api
         - mongo-seed
         - filedeploy
-      # stdin_open: true
-      # tty: true
 volumes:
   dependencyF:
   
