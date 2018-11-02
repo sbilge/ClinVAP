@@ -1,0 +1,20 @@
+ version: '3'
+ services:
+     mongodb:
+      image: mongo
+      ports:
+        - "27017:27017"
+
+     mongo-seed:
+      # build: ./mongo-seed
+      image: bilges/reporting_db
+      links:
+       - mongodb
+
+     api:
+      # build: ./app
+      image: bilges/reporting_db_api
+      ports:
+        - "5000:5000"
+      depends_on:
+        - mongo-seed
