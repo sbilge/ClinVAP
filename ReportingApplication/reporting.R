@@ -172,7 +172,7 @@ fixed$ALT <- unlist(lapply(fixed$ALT, toString))
 
 # minium variant level data (MVLD) according to
 # Ritter et al. (https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-016-0367-z)
-mvld <- location %>%
+vep_table <- location %>%
   bind_cols(tbl_df(fixed)) %>%
   bind_cols(ann) %>%
   mutate(chr = stringr::str_extract(chr, "[0-9,X,Y]+")) %>%
@@ -191,10 +191,9 @@ mvld <- location %>%
   dplyr::rename(gene_symbol = SYMBOL, Type = VARIANT_CLASS) %>%
   dplyr::mutate(Mutation = ifelse(Consequence == "stop gained", Consequence, Protein)) %>%
   filter(filter == "PASS" | filter == ".") %>% # filter quality
-  filter(PICK == 1) %>% # filter only transcripts that VEP picked
-  filter(BIOTYPE == "protein_coding" & Consequence != "synonymous" & Consequence != "intron")
+  filter(PICK == 1) # filter only transcripts that VEP picked
 
-if (nrow(mvld) == 0) {
+if (nrow(vep_table) == 0) {
   log4r::level(logger) <- "ERROR"
   log4r::error(logger, "No variants found that passed the QC tests.")
   log4r::error(logger, "Terminated.")
@@ -204,17 +203,26 @@ if (nrow(mvld) == 0) {
   log4r::info(logger, "MVLD is not empty.")
 }
 
+mvld_high_moderate <- vep_table %>%
+  filter(IMPACT == "HIGH" | IMPACT == "MODERATE") %>%
+  filter(!((SIFT=="tolerated" & PolyPhen=="benign") | (SIFT=="tolerated_low_confidence" & PolyPhen=="benign")))
+
+
+mvld_modifier_impact <- vep_table %>%
+  filter(IMPACT == "MODIFIER")
+
+
 # now query our annotation database for information on drugs and driver status for all genes occuring in the
 # mvld. Then create a relational schema for each with hgnc_id as our 'key', resulting in 3 tables, one each for genes, drivers, and drugs.
 
 if (is.null(dataFile)){
      db_baseurl = 'http://localhost:5000/biograph_genes?where={"hgnc_id":{"$in":["'
-     querystring = URLencode(paste(db_baseurl, paste(unique(mvld$hgnc_id), collapse = '","'), '"]}}', sep=''))
+     querystring = URLencode(paste(db_baseurl, paste(unique(mvld_high_moderate$hgnc_id), collapse = '","'), '"]}}', sep=''))
      biograph_json <- as.tbl_json(getURL(querystring))
  } else {
      db_result <- jsonlite::fromJSON(dataFile) %>%
        dplyr::mutate(hgnc_id = as.integer(hgnc_id)) %>%
-       dplyr::semi_join(mvld, by = c("hgnc_id"))
+       dplyr::semi_join(mvld_high_moderate, by = c("hgnc_id"))
      db_res <- jsonlite::toJSON(db_result , dataframe = c("rows"), matrix = c("columnmajor"), pretty = TRUE)
      biograph_json <- paste0("{","\n", '"_items":', db_res,"\n",'}')
  }
@@ -271,8 +279,8 @@ biograph_driver <- biograph_json %>%
     driver_pmid = jstring("pmid")
   ) %>%
   mutate(hgnc_id = as.integer(hgnc_id)) %>%
-  left_join(mvld, by = c("gene_symbol", "hgnc_id")) %>%
-  dplyr::select(gene_symbol, Mutation, driver_pmid)
+  left_join(mvld_high_moderate, by = c("gene_symbol", "hgnc_id")) %>%
+  dplyr::select(gene_symbol, Mutation, driver_pmid, driver_type)
 
 # prepare a tidy dataset, where all information on drugs and drivers is available for all mutations, i.e.
 # every row is a unique combination of mutation, transcript, gene, driver status, and drug interactions.
@@ -285,10 +293,23 @@ biograph_driver <- biograph_json %>%
 # driver genes with mutation (irrespective of being a drug target or not)
 lof_driver <- biograph_driver %>%
   dplyr::group_by(gene_symbol, Mutation) %>%
-  dplyr::summarize(mutation = unique(Mutation), Confidence = n(), References = paste(driver_pmid, collapse = "|")) %>%
+  dplyr::summarize(mutation = unique(Mutation), Confidence = n(), DriverType = paste(driver_type, collapse = "|"), References = paste(driver_pmid, collapse = "|")) %>%
   dplyr::arrange(desc(Confidence)) %>%
-  dplyr::select(-Mutation) %>%
+  dplyr::mutate(Type = case_when (grepl("TSG", DriverType, fixed=TRUE) & grepl("Oncogene", DriverType) ~ "TSG/Oncogene",
+                                  grepl("TSG", DriverType, fixed=TRUE) ~ "TSG",
+                                  grepl("Oncogene", DriverType, fixed=TRUE) ~ "Oncogene",
+                                  TRUE ~ "unknown")) %>%
+  dplyr::select(-Mutation, -DriverType) %>%
   dplyr::rename(Gene = gene_symbol, Mutation = mutation)
+
+# table to get the frequencies of the type variable in the table
+count_table <- lof_driver %>%
+  dplyr::select(Gene, Type) %>%
+  dplyr::distinct(Gene, .keep_all = TRUE)
+
+num_of_snvs = length(unique(mvld_high_moderate$location)) # to get number of SNVs
+num_of_oncogenes <- length(which(count_table$Type == "Oncogene")) + length(which(count_table$Type == "TSG/Oncogene"))
+num_of_tsg <- length(which(count_table$Type == "TSG")) + length(which(count_table$Type == "TSG/Oncogene"))
 
 # cancer drug targets with mutation
 
@@ -297,7 +318,7 @@ lof_driver <- biograph_driver %>%
 lof_variant_dt_table <- biograph_drugs %>%
   # only cancer drug targets
   filter(is_cancer_drug & interaction_type == "target") %>%
-  dplyr::left_join(mvld, by = c("gene_symbol", "hgnc_id")) %>%
+  dplyr::left_join(mvld_high_moderate, by = c("gene_symbol", "hgnc_id")) %>%
   group_by(gene_symbol, Mutation, drug_name) %>%
   summarise(Confidence = n(), References = paste(unique(na.omit(drug_pmid)), collapse = "|")) %>%
   dplyr::select(Gene = gene_symbol, Mutation, Therapy = drug_name, Confidence, References) %>%
@@ -308,14 +329,14 @@ lof_variant_dt_table <- biograph_drugs %>%
 # Here we list all genes with any LoF mutation (not necessarily the same mutation that occured in the sample) with evidence
 # that the affected patient could show a resistance to a drug. Note that lof_civic_dt_table is a superset
 # of drug_variants below.
-lof_civic_dt_table <- mvld %>%
+lof_civic_dt_table <- mvld_high_moderate %>%
   inner_join(civic_evidence, by = c("gene_symbol" = "gene")) %>%
   dplyr::select(Gene = gene_symbol, Mutation = variant, Therapy = drugs, Disease = disease, Effect = clinical_significance, Evidence = evidence_level, References = pubmed_id)
 
 # mutation-specific annotations (from civic)
 # These are mutations reported by CiVIC with a known pharmacogenetic effect, clinical significance, and evidence level.
 # Note that these variants have to match with the sample variants in their exact position on the genome.
-drug_variants <- mvld %>%
+drug_variants <- mvld_high_moderate %>%
   inner_join(civic_evidence, by = c("gene_symbol" = "gene", "chr", "start", "stop", "ref", "alt")) %>%
   dplyr::select(Gene = gene_symbol, Mutation = variant, Therapy = drugs, Disease = disease, Effect = clinical_significance, Evidence = evidence_level, References = pubmed_id) %>%
   arrange(Evidence)
@@ -363,8 +384,8 @@ references <- references_json  %>%
 
 
 if (nrow(references) > 0){
-  if (nrow(mvld) > 0) {
-    appendix <- mvld %>%
+  if (nrow(mvld_high_moderate) > 0) {
+    appendix <- mvld_high_moderate %>%
       dplyr::select(Gene = gene_symbol, Mutation, dbSNP, COSMIC)
     log4r::level (logger) <- 'INFO'
     log4r::info (logger, " A non-empty 'appendix' table is created.")
@@ -387,7 +408,7 @@ if (nrow(lof_driver)) {
     unnest(References) %>%
     mutate(References = str_trim(References)) %>%
     left_join(reference_map, by = "References") %>%
-    group_by(Gene, Mutation, Confidence) %>%
+    group_by(Gene, Mutation, Confidence, Type) %>%
     arrange(rowid, .by_group = T) %>%
     summarise(References = paste(rowid, collapse = ",")) %>%
     dplyr::arrange(desc(Confidence))
@@ -404,7 +425,7 @@ if (nrow(lof_variant_dt_table) == FALSE & nrow(lof_civic_dt_table) == FALSE){
   log4r::warn(logger, "'Somatic Mutations in Pharmaceutical Target Proteins' table will not be generated in the report since'lof_variant_dt_table' and  'lof_civic_dt_table' are empty.")
 } 
 
-if (nrow(lof_variant_dt_table)) { #bu direct association degil. Julian?? 
+if (nrow(lof_variant_dt_table)) {
   lof_variant_dt_table <- lof_variant_dt_table %>%
     mutate(References = str_split(References, "\\|")) %>%
     unnest(References) %>%
@@ -428,7 +449,8 @@ if (nrow(lof_civic_dt_table)) {
     mutate(References = str_trim(References)) %>%
     left_join(reference_map, by = "References") %>%
     group_by(Gene, Mutation, Therapy, Disease, Evidence) %>%
-    summarise(References = paste(rowid, collapse = ","))
+    summarise(References = paste(rowid, collapse = ",")) %>%
+    arrange(Evidence)
   log4r::level(logger) <- 'INFO'
   log4r::info(logger, "A non-empty 'lof_civic_dt_table' is present.")
 } else {
@@ -466,10 +488,9 @@ if (is.null(opt$metadata)) {
                          "\n",'"patient_dateofbirth"',":", '"",',
                          "\n",'"patient_diagnosis_short"',":", '"",',
                          "\n",'"mutation_load"',":", '"",',
-                         "\n",'"mutation_ns_snv"',":", '"",',
-                         "\n",'"mutation_affected_oncogenes"',":",'"",',
-                         "\n",'"mutation_affected_tumorsupressorgenes"',":", '"",',
-                         "\n",'"mutation_hla_type"',":", '"",',
+                         "\n",'"mutation_ns_snv"',":", '"', num_of_snvs, '",',
+                         "\n",'"mutation_affected_oncogenes"',":", '"', num_of_oncogenes, '",',
+                         "\n",'"mutation_affected_tumorsupressorgenes"',":", '"', num_of_tsg, '",',
                          "\n",'"mutation_additional_information"',":",'""')
 } else {
   # read metadata
@@ -480,10 +501,9 @@ if (is.null(opt$metadata)) {
                                "\n",'"patient_dateofbirth"',":", '"', patient_info$patient_dateofbirth, '",',
                                "\n",'"patient_diagnosis_short"',":", '"', patient_info$patient_diagnosis_short, '",',
                                "\n",'"mutation_load"',":", '"', patient_info$mutation_load, '",',
-                               "\n",'"mutation_ns_snv"',":", '"",',
-                               "\n",'"mutation_affected_oncogenes"',":",'"",',
-                               "\n",'"mutation_affected_tumorsupressorgenes"',":", '"",',
-                               "\n",'"mutation_hla_type"',":", '"",',
+                               "\n",'"mutation_ns_snv"',":", '"', num_of_snvs, '",',
+                               "\n",'"mutation_affected_oncogenes"',":", '"', num_of_oncogenes, '",',
+                               "\n",'"mutation_affected_tumorsupressorgenes"',":", '"', num_of_tsg, '",',
                                "\n",'"mutation_additional_information"',":",'""')
 }
 

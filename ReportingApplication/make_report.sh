@@ -54,7 +54,7 @@ if [[ $savedOut == *"j"* ]]; then
     echo "JSON is saved to the volume"
 fi
 
-cp /tmp/*.log $LOGS
+mv /tmp/*.log $LOGS
 
 echo "################ Start to create report ################"
 nodejs /opt/vep/clinicalreporting_docxtemplater/main.js -d /tmp/$outname.json -t /opt/vep/clinicalreporting_docxtemplater/data/template.docx -o /tmp/$outname.docx

@@ -1,20 +1,15 @@
 # Clinical Reporting Pipeline
 
-This is a prototype implementation of a clinical reporting pipeline in R.
-It creates a genetic report of somatic mutations from a vcf file annotated via [Ensembl Variant Effect Predictor](https://github.com/Ensembl/ensembl-vep).
-
-Note: CIViC only supports reference genome build 37.
-
+Clinical Reporting Pipeline creates a genetic report of somatic mutations from a variant call format (VCF) file. It supports reference genome build 37. 
 
 
 ## Usage with Docker
 
-We assume that we want to create a report for a vcf file, and that you have Docker installed. 
-
-We clone this repository and checkout the single_script branch:
+Requirements: Docker 
+To tun the pipeline, please follow the steps given below. 
 
 ```
-1. git clone -b master https://github.com/PersonalizedOncology/ClinicalReportingPipeline.git
+1. git clone https://github.com/PersonalizedOncology/ClinicalReportingPipeline.git
 ```
 Pelase note that the input VCF file(s) should be in ReportingApplication/inout folder.
 
@@ -34,3 +29,16 @@ You should now have the report in ReportingApplication/inout folder.
 
 ## Usage with Singularity
 
+Requirements: Singularity
+To run the pipeline, please follow the steps given below. 
+
+1. Pull reporting image from Singularity Hub.
+ `singularity pull -n reporting_app.img  shub://XXX/ClinicalReportingPipeline:report` 
+2. Pull dependency files image from Singularity Hub. 
+`singularity pull -n file_deploy.img  shub://XXX/ClinicalReportingPipeline:filedeploy`
+3. Run dependency files image first to transfer those file on your local  folder. 
+ `singularity run -B /LOCAL/PATH/TO/FILES:/mnt file_deploy.img`
+4. Run the reporting image to generate the clinical reports. 
+`singularity run -B /LOCAL/PATH/TO/FILES:/data -B /PATH/TO/INPUT/DATA:/inout reporting_app.img -t /inout -p jwp`
+
+You should now have the report in your /PATH/TO/INPUT/DATA folder.
