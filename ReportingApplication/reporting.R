@@ -215,7 +215,7 @@ mvld_modifier_impact <- vep_table %>%
 # now query our annotation database for information on drugs and driver status for all genes occuring in the
 # mvld. Then create a relational schema for each with hgnc_id as our 'key', resulting in 3 tables, one each for genes, drivers, and drugs.
 
-if (is.null(dataFile)){
+if (is.null(opt$database)){
      db_baseurl = 'http://localhost:5000/biograph_genes?where={"hgnc_id":{"$in":["'
      querystring = URLencode(paste(db_baseurl, paste(unique(mvld_high_moderate$hgnc_id), collapse = '","'), '"]}}', sep=''))
      biograph_json <- as.tbl_json(getURL(querystring))
