@@ -11,9 +11,8 @@ copy_data.sh /opt/vep
 
 %post
 cd /opt/vep
-
 # installing API version 93 in the container
-perl INSTALL.pl --VERSION 93 -a a 
+perl src/ensembl-vep/INSTALL.pl --VERSION 93 -a a 
 chmod +x copy_data.sh
 
 %runscript
