@@ -8,8 +8,8 @@ Version V93
 %files
 # get copy_data to the image
 copy_data.sh /opt/vep
+chmod +x copy_data.sh
 
 %runscript
 cd /opt/vep
-chmod +x copy_data.sh
 ./copy_data.sh
