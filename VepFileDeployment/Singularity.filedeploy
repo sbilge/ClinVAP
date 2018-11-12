@@ -11,6 +11,7 @@ copy_data.sh /opt/vep
 
 %post
 cd /opt/vep
+chmod -R u+w /opt/vep
 chmod +x copy_data.sh
 
 %runscript
