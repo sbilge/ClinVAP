@@ -33,10 +33,10 @@ Requirements: Singularity
 To run the pipeline, please follow the steps given below. 
 
 1. Pull reporting image from Singularity Hub.
- `singularity pull -n reporting_app.img  shub://XXX/ClinicalReportingPipeline:report` 
+ `singularity pull -n reporting_app.img  shub://sbilge/ClinicalReportingPipeline:report` 
 2. Pull dependency files image from Singularity Hub. 
-`singularity pull -n file_deploy.img  shub://XXX/ClinicalReportingPipeline:filedeploy`
-3. Run dependency files image first to transfer those file on your local  folder. 
+`singularity pull -n file_deploy.img  shub://sbilge/ClinicalReportingPipeline:filedeploy`
+3. Run dependency files image first to transfer those file on your local folder. 
  `singularity run -B /LOCAL/PATH/TO/FILES:/mnt file_deploy.img`
 4. Run the reporting image to generate the clinical reports. 
 `singularity run -B /LOCAL/PATH/TO/FILES:/data -B /PATH/TO/INPUT/DATA:/inout reporting_app.img -t /inout -p jwp`
