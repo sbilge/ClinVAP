@@ -42,3 +42,24 @@ To run the pipeline, please follow the steps given below.
 `singularity run -B /LOCAL/PATH/TO/FILES:/data -B /PATH/TO/INPUT/DATA:/inout reporting_app.img -t /inout -p jwp`
 
 You should now have the report in your /PATH/TO/INPUT/DATA folder.
+
+## Demo Run
+We provided an example input file, strelka\_passed\_missense\_somatic\_snvs.vcf under ./ReportingApplication/inout folder along with a dummy metadata file, strelka\_passed\_missense\_somatic\_snvs.json.  
+### Running Demo with Docker
+
+```
+1. git clone https://github.com/PersonalizedOncology/ClinicalReportingPipeline.git
+2. cd ClinicalReportingPipeline/
+3. docker-compose run --service-ports ClinicalReportR -t /inout -p jwp
+
+```
+### Running Demo with Singularity
+```
+1. git clone https://github.com/PersonalizedOncology/ClinicalReportingPipeline.git
+2. singularity pull -n reporting_app.img  shub://sbilge/ClinicalReportingPipeline:report
+3. singularity pull -n file_deploy.img  shub://sbilge/ClinicalReportingPipeline:filedeploy
+4. mkdir vep_files
+5. singularity run -B ./vep_files:/mnt file_deploy.img
+6. singularity run -B ./vep_files:/data -B ./ClinicalReportingPipeline/ReportingApplication/inout:/inout reporting_app.img -t /inout -p jwp
+
+```
