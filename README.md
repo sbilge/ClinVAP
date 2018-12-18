@@ -5,7 +5,7 @@ Clinical Reporting Pipeline creates a genetic report of somatic mutations from a
 
 ## Usage with Docker
 
-Requirements: Docker 
+Requirements: Docker Engine release 1.13.0+, Compose release 1.10.0+. 
 To tun the pipeline, please follow the steps given below. 
 
 ```
