@@ -51,7 +51,9 @@ fi
 
 if [[ $savedOut == *"j"* ]]; then
     cp /tmp/$outname.json $RESULTS
-    echo "JSON is saved to the volume"
+    if [ -f $RESULTS/$outname.json ]; then
+        echo "JSON is saved to the volume"
+    fi
 fi
 
 mv /tmp/*.log $LOGS
@@ -60,10 +62,16 @@ echo "################ Start to create report ################"
 nodejs /opt/vep/clinicalreporting_docxtemplater/main.js -d /tmp/$outname.json -t /opt/vep/clinicalreporting_docxtemplater/data/template.docx -o /tmp/$outname.docx
 if [[ $savedOut == *"w"* ]]; then
     cp /tmp/$outname.docx  $RESULTS
+    if [ -f $RESULTS/$outname.docx ]; then
+        echo "DOCX is saved to the volume"
+    fi
 fi
 
     # convert it to pdf
 if [[ $savedOut == *"p"* ]]; then
     libreoffice --headless --convert-to pdf /tmp/$outname.docx  --outdir  $RESULTS
+    if [ -f $RESULTS/$outname.pdf ]; then
+        echo "PDF is saved to the volume"
+    fi
 fi
 done
