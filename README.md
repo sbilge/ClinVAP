@@ -1,7 +1,6 @@
 # Clinical Reporting Pipeline
 
-Clinical Reporting Pipeline creates a genetic report of somatic mutations from a variant call format (VCF) file. It supports reference genome build 37. 
-
+Clinical Reporting Pipeline creates a genetic report of somatic mutations from a variant call format (VCF) file. Details of the pipeline is available at [Wiki page](https://github.com/PersonalizedOncology/ClinicalReportingPipeline/wiki). 
 
 ## Usage with Singularity
 
