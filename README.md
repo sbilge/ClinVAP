@@ -1,4 +1,4 @@
-![Pipeline Logo](https://github.com/sbilge/ClinicalReportingPipeline/blob/master/doc/logo.pdf)
+![Pipeline Logo](https://github.com/sbilge/ClinicalReportingPipeline/blob/master/doc/logo.jpeg)
 
 [![Release: Github](https://img.shields.io/github/release/PersonalizedOncology/ClinicalReportingPipeline.svg)](https://github.com/PersonalizedOncology/ClinicalReportingPipeline/releases)
 ![Singularity: Available](https://img.shields.io/badge/Singularity-Available-blue.svg)
