@@ -1,5 +1,5 @@
 build:
-	docker build . -t report_api_example_data 
+	docker build . -t clinvap/report_db_api_example_data 
 
 build-no-cache:
-	docker build . -t report_api_example_data --no-cache
+	docker build . -t clinvap/report_db_api_example_data --no-cache

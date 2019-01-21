@@ -3,13 +3,13 @@ services:
   db:
     image: mongo 
   example_data:
-    image: report_api_example_data
+    image: clinvap/report_db_api_example_data
     depends_on:
       - 'db'
     links:
       - 'db'
   api:
-    image: report_api
+    image: clinvap/report_db_api
     depends_on:
       - 'example_data'
     links: 

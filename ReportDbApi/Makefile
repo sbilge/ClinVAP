@@ -1,5 +1,5 @@
 build:
-	docker build . -t report_api 
+	docker build . -t clinvap/report_db_api 
 
 build-no-cache:
-	docker build . -t report_api --no-cache
+	docker build . -t clinvap/report_db_api --no-cache

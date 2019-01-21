@@ -4,7 +4,7 @@ import json
 __PATH__ = os.path.dirname(__file__)
 __REPORT_SCHEMA__ = os.path.join(__PATH__, 'schema/report.json')
 
-with open(__REPORTS_SCHEMA__) as fp:
+with open(__REPORT_SCHEMA__) as fp:
     reports_schema = json.load(fp)
 
 reports = {
