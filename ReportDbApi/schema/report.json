@@ -7,5 +7,140 @@
   },
   "patient_dateofbirth": {
     "type": "string"
+  },
+  "mutation_load": {
+    "type": "string"
+  },
+  "mutation_ns_snv": {
+    "type": "string"
+  },
+  "mutation_affected_oncogenes": {
+    "type": "string"
+  },
+  "mutation_affected_tumorsupressorgenes": {
+    "type": "string"
+  },
+  "mutation_additional_information": {
+    "type": "string"
+  },
+  "mskdg": {
+    "type": "list",
+    "schema": {
+      "Gene": {
+        "type": "string"
+      },
+      "Mutation": {
+        "type": "string"
+      },
+      "Confidence": {
+        "type": "integer" 
+      },
+      "Type": {
+        "type": "string"
+      },
+      "References": {
+        "type": "string"
+      }
+    }
+  },
+  "ptp_da": {
+    "type": "list",
+    "schema": {
+      "Gene": {
+        "type": "string"
+      },
+      "Mutation": {
+        "type": "string"
+      },
+      "Therapy": {
+        "type": "string"
+      },
+      "Confidence": {
+        "type": "integer" 
+      },
+      "References": {
+        "type": "string"
+      }
+    }
+  },
+  "ptp_ia": {
+    "type": "list",
+    "schema": {
+      "Gene": {
+        "type": "string"
+      },
+      "Mutation": {
+        "type": "string"
+      },
+      "Therapy": {
+        "type": "string"
+      },
+      "Disease": {
+        "type": "string"
+      },
+      "Evidence": {
+        "type": "string" 
+      },
+      "References": {
+        "type": "string"
+      }
+    }
+  },
+  "mskpe": {
+    "type": "list",
+    "schema": {
+      "Gene": {
+        "type": "string"
+      },
+      "Mutation": {
+        "type": "string"
+      },
+      "Therapy": {
+        "type": "string"
+      },
+      "Disease": {
+        "type": "string" 
+      },
+      "Evidence": {
+        "type": "string"
+      },
+      "References": {
+        "type": "string"
+      }
+    }
+  },
+  "ref": {
+    "type": "list",
+    "schema": {
+      "rowid": {
+        "type": "integer"
+      },
+      "citation": {
+        "type": "string"
+      }
+    }
+  },
+  "appendix": {
+    "type": "list",
+    "schema": {
+      "Gene": {
+        "type": "string"
+      },
+      "Mutation": {
+        "type": "string"
+      },
+      "dbSNP": {
+        "type": "list",
+        "items": [{
+          "type": "string"
+        }]
+      },
+      "COSMIC": {
+        "type": "list",
+        "items": [{
+          "type": "string"
+        }]
+      }
+    }
   }
 }
