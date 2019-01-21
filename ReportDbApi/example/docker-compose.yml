@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: mongo 
+  example_data:
+    image: report_api_example_data
+    depends_on:
+      - 'db'
+    links:
+      - 'db'
+  api:
+    image: report_api
+    depends_on:
+      - 'example_data'
+    links: 
+      - 'db'
+    ports:
+      - '5000:5000'

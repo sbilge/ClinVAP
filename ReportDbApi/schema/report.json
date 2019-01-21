@@ -1,0 +1,11 @@
+{
+  "patient_firstname": {
+    "type": "string"
+  },
+  "patient_lastname": {
+    "type": "string"
+  },
+  "patient_dateofbirth": {
+    "type": "string"
+  }
+}
