@@ -5,7 +5,7 @@
 ![Docker: Available](https://img.shields.io/badge/Docker-Available-blue.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
-# Clinical Reporting Pipeline
+# Clinical Variant Annotation Pipeline
 
 Clinical Reporting Pipeline creates a genetic report of somatic mutations from a variant call format (VCF) file. Please refer this document for implementation of the pipeline. Documentation of the pipeline is available at [Wiki page](https://github.com/PersonalizedOncology/ClinicalReportingPipeline/wiki). 
 
