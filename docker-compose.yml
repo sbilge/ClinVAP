@@ -6,24 +6,24 @@ services:
         - "27017:27017"
 
     mongo-seed:
-      image: bilges/reporting_db
+      image: personalizedoncology/reporting_db
       links:
        - mongodb
 
     api:
-      image: bilges/reporting_db_api
+      image: personalizedoncology/reporting_db_api
       ports:
         - "5000:5000"
       depends_on:
         - mongo-seed
 
     filedeploy:
-      image: bilges/file_deploy:93
+      image: personalizedoncology/file_deploy:93
       volumes:
         - dependencyF:/mnt
 
     ClinicalReportR: 
-      image: bilges/reporting_app:93
+      image: personalizedoncology/reporting_app:93
       volumes:
         - dependencyF:/data
         - ./ReportingApplication/inout:/inout
