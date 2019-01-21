@@ -1,3 +1,8 @@
+[![Release: Github](https://img.shields.io/github/release/PersonalizedOncology/ClinicalReportingPipeline.svg)](https://github.com/PersonalizedOncology/ClinicalReportingPipeline/releases)
+![Singularity: Available](https://img.shields.io/badge/Singularity-Available-blue.svg)
+![Docker: Available](https://img.shields.io/badge/Docker-Available-blue.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Pipeline Logo](https://github.com/sbilge/ClinicalReportingPipeline/blob/master/doc/logo.pdf)
 # Clinical Reporting Pipeline
 
 Clinical Reporting Pipeline creates a genetic report of somatic mutations from a variant call format (VCF) file. Please refer this document for implementation of the pipeline. Documentation of the pipeline is available at [Wiki page](https://github.com/PersonalizedOncology/ClinicalReportingPipeline/wiki). 
