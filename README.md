@@ -1,4 +1,4 @@
-![Pipeline Logo](https://github.com/sbilge/ClinicalReportingPipeline/blob/master/doc/logo.jpeg)
+![Pipeline Logo](https://github.com/sbilge/ClinVAP/blob/master/doc/logo.jpeg)
 
 [![Release: Github](https://img.shields.io/github/release/PersonalizedOncology/ClinicalReportingPipeline.svg)](https://github.com/PersonalizedOncology/ClinicalReportingPipeline/releases)
 [![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/1457)
@@ -7,7 +7,7 @@
 
 # Clinical Variant Annotation Pipeline
 
-Clinical Variant Annotation Pipeline (ClinVAP) creates a genetic report of somatic mutations from a variant call format (VCF) file. Please refer this document for implementation of the pipeline. Documentation of the pipeline is available at [Wiki page](https://github.com/PersonalizedOncology/ClinicalReportingPipeline/wiki). 
+Clinical Variant Annotation Pipeline (ClinVAP) creates a genetic report of somatic mutations from a variant call format (VCF) file. Please refer this document for implementation of the pipeline. Documentation of the pipeline is available at [Wiki page](https://github.com/PersonalizedOncology/ClinVAP/wiki). 
 
 ## Usage with Singularity
 
@@ -16,9 +16,9 @@ Please make sure that you have 12 GB of empty space on your home directory, and 
 To run the pipeline, please follow the steps given below. 
 
 1. Pull reporting image from Singularity Hub.
- `singularity pull -n reporting_app.img  shub://sbilge/ClinicalReportingPipeline:report` 
+ `singularity pull -n reporting_app.img  shub://PersonalizedOncology/ClinVAP:report` 
 2. Pull dependency files image from Singularity Hub. 
-`singularity pull -n file_deploy.img  shub://sbilge/ClinicalReportingPipeline:filedeploy`
+`singularity pull -n file_deploy.img  shub://PersonalizedOncology/ClinVAP:filedeploy`
 3. Run dependency files image first to transfer those file on your local folder. 
  `singularity run -B /LOCAL/PATH/TO/FILES:/mnt file_deploy.img`
 4. Run the reporting image to generate the clinical reports. 
@@ -85,12 +85,12 @@ We provided an example input file, strelka\_passed\_missense\_somatic\_snvs.vcf 
 
 ### Running Demo with Singularity
 ```
-1. git clone https://github.com/PersonalizedOncology/ClinicalReportingPipeline.git
-2. singularity pull -n reporting_app.img  shub://sbilge/ClinicalReportingPipeline:report
-3. singularity pull -n file_deploy.img  shub://sbilge/ClinicalReportingPipeline:filedeploy
+1. git clone https://github.com/PersonalizedOncology/ClinVAP.git
+2. singularity pull -n reporting_app.img  shub://PersonalizedOncology/ClinVAP:report
+3. singularity pull -n file_deploy.img  shub://PersonalizedOncology/ClinVAP:filedeploy
 4. mkdir vep_files
 5. singularity run -B ./vep_files:/mnt file_deploy.img
-6. singularity run -B ./vep_files:/data -B ./ClinicalReportingPipeline/ReportingApplication/inout:/inout reporting_app.img -t /inout -p jwp
+6. singularity run -B ./vep_files:/data -B ./ClinVAP/ReportingApplication/inout:/inout reporting_app.img -t /inout -p jwp
 
 ```
 ### Running Demo with Docker
