@@ -81,7 +81,7 @@ You should now have the report in ReportingApplication/inout folder.
 
 
 ## Demo Run
-We provided an example input file, strelka\_passed\_missense\_somatic\_snvs.vcf under ./ReportingApplication/inout folder along with a dummy metadata file, strelka\_passed\_missense\_somatic\_snvs.json. The corresponding report of the strelka input file is provided [here]() as an example. 
+We provided an example input file, strelka\_passed\_missense\_somatic\_snvs.vcf under ./ReportingApplication/inout folder along with a dummy metadata file, strelka\_passed\_missense\_somatic\_snvs.json. The corresponding report of the strelka input file is provided [here](https://github.com/PersonalizedOncology/ClinVAP/tree/master/doc/strelka_passed_missense_somatic_snvs.pdf) as an example. 
 
 ### Running Demo with Singularity
 ```
