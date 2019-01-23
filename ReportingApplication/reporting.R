@@ -54,7 +54,7 @@ if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   optparse::print_help(opt_parser)
   log4r::level(logger) <- 'ERROR'  
   log4r::error(logger, "Input file is not provided.")
-  log4r::error(logger, "The proces is terminated.")
+  log4r::error(logger, "The process is terminated.")
   file.rename("/tmp/base.log", "/tmp/no_input.log")
   stop()
   #  stop("Please supply a valid input file")
@@ -344,6 +344,16 @@ drug_variants <- mvld_high_moderate %>%
 # Now remove drug_variants that are also contained in lof_civic_dt_table
 lof_civic_dt_table <- setdiff(lof_civic_dt_table, drug_variants) %>%
   arrange(Evidence)
+
+# check if all the results are empty and terminate if so
+if (nrow(lof_driver) == 0 && nrow(lof_variant_dt_table) == 0 && nrow(lof_civic_dt_table) == 0 && nrow(drug_variants) == 0){
+  log4r::level(logger) <- "INFO"
+  log4r::info(logger, "No information found from databases. Terminating the program.")
+  log4r::level(logger) <- "FATAL"
+  messages = paste("No results could be found for ", basename(opt$file))
+  log4r::fatal(logger,  messages)
+  stop(messages)
+}
 
 # build a reference index to the bibliography
 reference_map <- tibble(References = c(lof_driver$References, lof_variant_dt_table$References, lof_civic_dt_table$References, drug_variants$References)) %>%
