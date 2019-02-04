@@ -22,7 +22,7 @@ flog.appender(appender.file('/tmp/check_points.log'))
 
 # packages are installed within the docker image. 
 tryCatchLog::tryLog({
-  list.of.packages <- c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "flextable", "optparse", "readr", "RCurl", "devtools", "tidyjson", "officer", "VariantAnnotation")
+  list.of.packages <- c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "optparse", "readr", "RCurl", "devtools", "tidyjson", "VariantAnnotation")
   lapply(list.of.packages, library, character.only=T)
 })
 
@@ -106,8 +106,8 @@ if (debug) {
 # update CiVIC data
 ###################
 
-# Collects the most recent data from CiVIC and returns a list with two data frames for genes and evidence.
-civic_source = "https://civicdb.org/downloads/nightly/nightly-ClinicalEvidenceSummaries.tsv"
+# Collects the data from CiVIC and returns a list with two data frames for genes and evidence.
+civic_source = "https://civicdb.org/downloads/01-Jan-2019/01-Jan-2019-ClinicalEvidenceSummaries.tsv"
 tryLog({
   civic_evidence <- read.table(civic_source, sep="\t", header=T, fill = T, quote = "", comment.char = "%") %>%
     dplyr::rename(chr=chromosome, alt=variant_bases, ref=reference_bases) %>%

@@ -9,7 +9,7 @@ Version V93
 # get copy_data to the image
 copy_data.sh /opt/vep
 
-%post 
+%post
 cd /opt/vep
 # installing API version 93 in the container
 perl src/ensembl-vep/INSTALL.pl --VERSION 93 -a a 
