@@ -3,6 +3,7 @@ services:
   db:
     image: mongo 
   example_data:
+    build: .
     image: clinvap/report_db_api_example_data
     depends_on:
       - 'db'
@@ -10,9 +11,12 @@ services:
       - 'db'
   api:
     image: clinvap/report_db_api
+    build: ..
     depends_on:
       - 'example_data'
     links: 
       - 'db'
+    environment:
+      MONGO_HOST: db
     ports:
-      - '5000:5000'
+      - '5151:5151'
