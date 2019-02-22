@@ -6,24 +6,24 @@ services:
         - "27017:27017"
 
     mongo-seed:
-      image: personalizedoncology/reporting_db
+      image: personalizedoncology/clinvap_reporting_db
       links:
        - mongodb
 
     api:
-      image: personalizedoncology/reporting_db_api
+      image: personalizedoncology/clinvap_reporting_db_api
       ports:
         - "5000:5000"
       depends_on:
         - mongo-seed
 
     filedeploy:
-      image: personalizedoncology/file_deploy:93
+      image: personalizedoncology/clinvap_file_deploy:93
       volumes:
         - dependencyF:/mnt
 
     ClinicalReportR: 
-      image: personalizedoncology/reporting_app:93
+      image: personalizedoncology/clinvap_reporting_app:93
       volumes:
         - dependencyF:/data
         - ./ReportingApplication/inout:/inout
@@ -34,4 +34,3 @@ services:
         - filedeploy
 volumes:
   dependencyF:
-  
