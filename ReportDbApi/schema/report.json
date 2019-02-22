@@ -1,4 +1,7 @@
 {
+  "file": {
+    "type": "string"
+  },
   "patient_firstname": {
     "type": "string"
   },
