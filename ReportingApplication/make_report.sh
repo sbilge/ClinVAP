@@ -74,4 +74,6 @@ if [[ $savedOut == *"p"* ]]; then
         echo "PDF is saved to the volume"
     fi
 fi
+# clean tmp directory
+find /tmp -type f -amin +30 -delete
 done
