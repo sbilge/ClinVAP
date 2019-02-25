@@ -25,7 +25,7 @@ su -c "perl /opt/vep/src/ensembl-vep/INSTALL.pl -n -a p -g LoFtool" veplugin
 cp /opt/plugin/.vep/Plugins/LoFtool.pm /opt/vep/.vep/Plugins
 cp /opt/plugin/.vep/Plugins/plugin_config.txt /opt/vep/.vep/Plugins
 
-# install R 
+# install R
 sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list' && \
   sh -c 'echo "deb http://ftp.halifax.rwth-aachen.de/ubuntu xenial-backports main restricted universe" >> /etc/apt/sources.list' && \
   gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 && \
