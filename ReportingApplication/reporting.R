@@ -22,7 +22,7 @@ flog.appender(appender.file('/tmp/check_points.log'))
 
 # packages are installed within the docker image. 
 tryCatchLog::tryLog({
-  list.of.packages <- c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "optparse", "readr", "RCurl", "devtools", "tidyjson", "VariantAnnotation")
+  list.of.packages <- c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "optparse", "readr", "RCurl", "devtools", "tidyjson", "VariantAnnotation","fs")
   lapply(list.of.packages, library, character.only=T)
 })
 
@@ -63,7 +63,7 @@ if (!debug && (is.null(opt$file) || !file.exists(opt$file))) {
   messages = paste(opt$file, "is provided as input file")
   log4r::info(logger, messages)
   new_log = paste0(opt$file,"_base.log")
-  file.rename("/tmp/base.log", new_log)
+  file_move("/tmp/base.log", new_log)
   log4r::logfile(logger) <- new_log
 }
 

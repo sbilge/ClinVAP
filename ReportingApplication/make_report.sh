@@ -20,13 +20,13 @@ RESULTS="${inputFolder}/results"
 LOGS="${inputFolder}/results/logs"
 TMP="${inputFolder}/results/tmp"
 
+mkdir -p $LOGS
+mkdir $TMP
+
 for file in ${inputFolder}/*.vcf;
 do
 outfilename=$(basename "$file")
 outname="${outfilename%.*}"
-
-mkdir -p $LOGS
-mkdir $TMP
 
 # annotate file
 echo "################ Starting variant effect prediction ################"

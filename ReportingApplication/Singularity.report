@@ -36,7 +36,7 @@ apt-get -y update && \
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install R packages
-Rscript -e 'install.packages(c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "flextable", "optparse", "readr", "RCurl", "devtools", "log4r", "futile.logger"), dependencies = TRUE, repos = "https://cloud.r-project.org")'
+Rscript -e 'install.packages(c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "optparse", "readr", "RCurl", "devtools", "log4r", "futile.logger", "fs"), dependencies = TRUE, repos = "https://cloud.r-project.org")'
 Rscript -e 'devtools::install_github("jeremystan/tidyjson")'
 Rscript -e 'devtools::install_github("davidgohel/officer")'
 Rscript -e 'devtools::install_github("aryoda/tryCatchLog")'
