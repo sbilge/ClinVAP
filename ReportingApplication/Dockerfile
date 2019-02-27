@@ -21,7 +21,7 @@ RUN apt-get -y update && \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install R packages
-RUN Rscript -e 'install.packages(c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "optparse", "readr", "RCurl", "devtools", "log4r", "futile.logger"), dependencies = TRUE, repos = "https://cloud.r-project.org")'
+RUN Rscript -e 'install.packages(c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "optparse", "readr", "RCurl", "devtools", "log4r", "futile.logger", "fs"), dependencies = TRUE, repos = "https://cloud.r-project.org")'
 RUN Rscript -e 'devtools::install_github("jeremystan/tidyjson")'
 RUN Rscript -e 'devtools::install_github("aryoda/tryCatchLog")'
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAnnotation", "rjson"), ask = FALSE, suppressUpdates = TRUE)'
