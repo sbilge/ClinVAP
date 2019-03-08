@@ -240,6 +240,16 @@ biograph_genes <- biograph_json %>%
   mutate(driver_score = ifelse(is.na(driver_score), 0, driver_score)) %>%
   dplyr::select(gene_symbol, hgnc_id, status, driver_score)
 
+
+unnest_cond <- function (df,column_name){
+  if (nrow(df)){
+    df %>% unnest_(column_name) 
+  }
+  else{
+    df %>% unnest_(column_name, .preserve = column_name)
+  }
+}
+
 biograph_drugs <- biograph_json %>%
   enter_object("_items") %>% gather_array() %>%
   spread_values(
@@ -262,7 +272,7 @@ biograph_drugs <- biograph_json %>%
   mutate(drug_pmid = ifelse(drug_pmid == "null", NA, drug_pmid)) %>%
   # make a row for every pubmed id
   mutate(drug_pmid = str_split(drug_pmid, "\\|")) %>%
-  unnest(drug_pmid) %>%
+  unnest("drug_pmid") %>%
   dplyr::select(-document.id, -array.index)
 
 biograph_driver <- biograph_json %>%
