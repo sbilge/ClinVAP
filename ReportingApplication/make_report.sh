@@ -39,15 +39,15 @@ metadata="${outname}"_metadata.json
 echo "################ Start to create json ################"
 if [ -f docker.flag ]; then # called by docker
     if [ ! -f $inputFolder/$metadata ]; then
-        ./opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json
+        Rscript --no-save --no-restore --no-init-file --no-site-file /opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json
     else
-        ./opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -m $inputFolder/$metadata
+       Rscript --no-save --no-restore --no-init-file --no-site-file /opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -m $inputFolder/$metadata
     fi
 else
     if [ ! -f $inputFolder/$metadata ]; then
-        ./opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -d /opt/vep/driver_db_dump.json
+        Rscript --no-save --no-restore --no-init-file --no-site-file /opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -d /opt/vep/driver_db_dump.json
     else
-        ./opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -d /opt/vep/driver_db_dump.json -m $inputFolder/$metadata
+        Rscript --no-save --no-restore --no-init-file --no-site-file /opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -d /opt/vep/driver_db_dump.json -m $inputFolder/$metadata
     fi
 fi
 
