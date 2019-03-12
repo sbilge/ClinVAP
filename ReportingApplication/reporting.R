@@ -546,3 +546,4 @@ if(file.exists(reportFile)) {
   log4r::level(logger) <- 'ERROR'
   log4r::error(logger, "JSON output is not created.") 
 }
+rm(list = ls())
