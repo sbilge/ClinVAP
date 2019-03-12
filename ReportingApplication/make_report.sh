@@ -39,15 +39,15 @@ metadata="${outname}"_metadata.json
 echo "################ Start to create json ################"
 if [ -f docker.flag ]; then # called by docker
     if [ ! -f $inputFolder/$metadata ]; then
-        Rscript /opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json
+        ./opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json
     else
-        Rscript /opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -m $inputFolder/$metadata
+        ./opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -m $inputFolder/$metadata
     fi
 else
     if [ ! -f $inputFolder/$metadata ]; then
-        Rscript /opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -d /opt/vep/driver_db_dump.json
+        ./opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -d /opt/vep/driver_db_dump.json
     else
-        Rscript /opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -d /opt/vep/driver_db_dump.json -m $inputFolder/$metadata
+        ./opt/vep/reporting.R -f $TMP/$outname.vcf -r $TMP/$outname.json -d /opt/vep/driver_db_dump.json -m $inputFolder/$metadata
     fi
 fi
 
