@@ -242,7 +242,7 @@ biograph_genes <- biograph_json %>%
 
 
 unnest_cond <- function (df,column_name){
-  if (nrow(df)){
+  if (nrow(df) > 0){
     df %>% unnest_(column_name) 
   }
   else{
