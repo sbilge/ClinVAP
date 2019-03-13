@@ -245,7 +245,7 @@ unnest_cond <- function (df,column_name){
   if (nrow(df) > 0){
     df %>% unnest_(column_name) 
   }
-  else{
+  else {
     df %>% unnest_(column_name, .preserve = column_name)
   }
 }
@@ -272,7 +272,7 @@ biograph_drugs <- biograph_json %>%
   mutate(drug_pmid = ifelse(drug_pmid == "null", NA, drug_pmid)) %>%
   # make a row for every pubmed id
   mutate(drug_pmid = str_split(drug_pmid, "\\|")) %>%
-  unnest("drug_pmid") %>%
+  unnest_cond("drug_pmid") %>%
   dplyr::select(-document.id, -array.index)
 
 biograph_driver <- biograph_json %>%
@@ -546,4 +546,3 @@ if(file.exists(reportFile)) {
   log4r::level(logger) <- 'ERROR'
   log4r::error(logger, "JSON output is not created.") 
 }
-rm(list = ls())
