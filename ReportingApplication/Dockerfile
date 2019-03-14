@@ -22,8 +22,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install R packages
 RUN Rscript -e 'install.packages(c("dplyr", "dtplyr", "tidyr", "stringr", "splitstackshape", "optparse", "readr", "RCurl", "devtools", "log4r", "futile.logger", "fs"), dependencies = TRUE, repos = "https://cloud.r-project.org")'
-RUN Rscript -e 'devtools::install_github("jeremystan/tidyjson")'
-RUN Rscript -e 'devtools::install_github("aryoda/tryCatchLog")'
+RUN Rscript -e 'devtools::install_github("colearendt/tidyjson@d79f3ff0a3279adef07819af4ab572f9ba46f3c0")'
+RUN Rscript -e 'devtools::install_github("aryoda/tryCatchLog@aa115fe2bd7b6569492eb0a9673f028ee6ec40a2")'
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAnnotation", "rjson"), ask = FALSE, suppressUpdates = TRUE)'
 
 # Although LoF is installed via VEP's install script above, it's unclear which version.
