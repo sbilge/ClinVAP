@@ -272,7 +272,7 @@ biograph_drugs <- biograph_json %>%
   mutate(drug_pmid = ifelse(drug_pmid == "null", NA, drug_pmid)) %>%
   # make a row for every pubmed id
   mutate(drug_pmid = str_split(drug_pmid, "\\|")) %>%
-  unnest_cond("drug_pmid") %>%
+  as_tibble() %>% unnest_cond("drug_pmid") %>%
   dplyr::select(-document.id, -array.index)
 
 biograph_driver <- biograph_json %>%
