@@ -37,7 +37,9 @@ option_list = list(
   optparse::make_option(c("-f", "--file"), type = "character", help = "the input file in vcf format", default = NULL),
   optparse::make_option(c("-r", "--report"), type = "character", help = "the file name for the detailed output report", default = NULL),
   optparse::make_option(c("-d", "--database"), type= "character", help= "Where the MyDrug data is to be found. Required for Singularity only.", default= NULL),
-  optparse::make_option(c("-m", "--metadata"), type = "character", help = "metadata json file, to integrate patient info into reulting json if present", default = NULL)
+  optparse::make_option(c("-m", "--metadata"), type = "character", help = "metadata json file, to integrate patient info into reulting json if present", default = NULL),
+  optparse::make_option(c("-g", "--genome"), type = "character", help = "human genome assembly identifier", default = NULL),
+  optparse::make_option(c("-c", "--civic38"), type = "character", help = "path to GRCh38 mapped CIViC db ", default = NULL)
 )
 
 opt_parser <- optparse::OptionParser(option_list = option_list)
@@ -136,7 +138,7 @@ if(is.null(civic_evidence) || nrow(civic_evidence)==0){
 #
 ###################
 tryLog({
-  vcf <- VariantAnnotation::readVcf(vcfFile, "hg19") # hg19 = GRCh37
+  vcf <- VariantAnnotation::readVcf(vcfFile, opt$genome) # hg19 = GRCh37
 })
 
 if(!exists('vcf')){
@@ -346,10 +348,31 @@ lof_civic_dt_table <- mvld_high_moderate %>%
 # mutation-specific annotations (from civic)
 # These are mutations reported by CiVIC with a known pharmacogenetic effect, clinical significance, and evidence level.
 # Note that these variants have to match with the sample variants in their exact position on the genome.
-drug_variants <- mvld_high_moderate %>%
-  inner_join(civic_evidence, by = c("gene_symbol" = "gene", "chr", "start", "stop", "ref", "alt")) %>%
-  dplyr::select(Gene = gene_symbol, Mutation = variant, Therapy = drugs, Disease = disease, Effect = clinical_significance, Evidence = evidence_level, References = pubmed_id) %>%
-  arrange(Evidence)
+
+# Put conditions according to the genome assembly for CIViC DB
+if (opt$genome == "GRCh38") {
+  civic_evidence_38 = read.table(opt$civic38, sep="\t", header=T, fill = T, quote = "", comment.char = "%") %>%
+    dplyr::rename(chr=chromosome, alt=variant_bases, ref=reference_bases) %>%
+    dplyr::mutate(gene = as.character(gene),
+                  chr = as.character (chr),
+                  start = as.integer(start),
+                  stop = as.integer(stop),
+                  ref = as.character(ref),
+                  alt = as.character(alt)) %>%
+    filter(evidence_status == "accepted") %>%
+    filter(variant_origin == "Somatic Mutation") %>%
+    filter(evidence_type == "Predictive" & evidence_direction == "Supports")
+
+  drug_variants <- mvld_high_moderate %>%
+    inner_join(civic_evidence_38, by = c("gene_symbol" = "gene", "chr", "start", "stop", "ref", "alt")) %>%
+    dplyr::select(Gene = gene_symbol, Mutation = variant, Therapy = drugs, Disease = disease, Effect = clinical_significance, Evidence = evidence_level, References = pubmed_id) %>%
+    arrange(Evidence)
+} else {
+  drug_variants <- mvld_high_moderate %>%
+    inner_join(civic_evidence, by = c("gene_symbol" = "gene", "chr", "start", "stop", "ref", "alt")) %>%
+    dplyr::select(Gene = gene_symbol, Mutation = variant, Therapy = drugs, Disease = disease, Effect = clinical_significance, Evidence = evidence_level, References = pubmed_id) %>%
+    arrange(Evidence)
+}
 
 # Now remove drug_variants that are also contained in lof_civic_dt_table
 lof_civic_dt_table <- setdiff(lof_civic_dt_table, drug_variants) %>%

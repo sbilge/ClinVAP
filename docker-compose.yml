@@ -19,7 +19,7 @@ services:
         - mongo-seed
 
     filedeploy:
-      image: personalizedoncology/clinvap_file_deploy:v1.0
+      image: personalizedoncology/clinvap_file_deploy:v1.0_${assembly}
       volumes:
         - dependencyF:/mnt
 

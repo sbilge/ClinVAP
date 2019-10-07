@@ -8,6 +8,7 @@ make_report.sh /opt/vep
 reporting.R /opt/vep
 driver_db_dump.json /opt/vep
 clinicalreporting_docxtemplater /opt/vep/clinicalreporting_docxtemplater
+GRCh38_01-Jan-2019-ClinicalEvidenceSummaries.txt /opt/vep
 
 %labels
 Maintainer sueruen@informatik.uni-tuebingen.de

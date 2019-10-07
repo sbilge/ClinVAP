@@ -47,6 +47,7 @@ COPY reporting.R /opt/vep
 COPY driver_db_dump.json /opt/vep
 RUN mkdir clinicalreporting_docxtemplater
 COPY clinicalreporting_docxtemplater /opt/vep/clinicalreporting_docxtemplater
+COPY GRCh38_01-Jan-2019-ClinicalEvidenceSummaries.txt /opt/vep/GRCh38_01-Jan-2019-ClinicalEvidenceSummaries.txt
 
 WORKDIR /opt/vep/clinicalreporting_docxtemplater
 RUN npm install

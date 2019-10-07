@@ -20,9 +20,20 @@ To run the pipeline, please follow the steps given below.
 2. Pull dependency files image from Singularity Hub. 
 `singularity pull -n file_deploy.img  shub://PersonalizedOncology/ClinVAP:filedeploy`
 3. Run dependency files image first to transfer those file on your local folder. 
- `singularity run -B /LOCAL/PATH/TO/FILES:/mnt file_deploy.img`
+ `singularity run -B /LOCAL/PATH/TO/FILES:/mnt file_deploy.img -a <ASSEMBLY>`
 4. Run the reporting image to generate the clinical reports. 
-`singularity run -B /LOCAL/PATH/TO/FILES:/data -B /PATH/TO/INPUT/DATA:/inout reporting_app.img -t /inout -p jwp`
+`singularity run -B /LOCAL/PATH/TO/FILES:/data -B /PATH/TO/INPUT/DATA:/inout reporting_app.img -t /inout -p jwp -a <ASSEMBLY>`
+
+
+* `assembly`: Please provide the genome assembly that was used in variant calling calling step to generate your VCF files. 
+	* `GRCh37` for genome assembly 37 
+	* `GRCh38` for genome assembly 38
+
+* `-t`: folder name containing input data. This should be in the data volume of ClinicalReportR service (modify Docker compose file to change this).
+* `-p`: output format to save the results.
+	* `j` to save report in JSON format
+	* `w` to save report in DOCX format
+	* `p` to save report in PDF format
 
 You should now have the report in your /PATH/TO/INPUT/DATA folder.
 
@@ -42,9 +53,12 @@ Pelase note that the input VCF file(s) should be in ReportingApplication/inout f
 
 ```
 2. cd ClinVAP/
-3. docker-compose run --service-ports ClinicalReportR -t /inout -p jwp
+3. docker-compose run -e <ASSEMBLY> --service-ports ClinicalReportR -t /inout -p jwp -a <ASSEMBLY>
 
 ```
+* `assembly`: Please provide the genome assembly that was used in variant calling calling step to generate your VCF files. 
+	* `GRCh37` for genome assembly 37 
+	* `GRCh38` for genome assembly 38
 * `-t`: folder name containing input data. This should be in the data volume of ClinicalReportR service (modify Docker compose file to change this).
 * `-p`: output format to save the results.
 	* `j` to save report in JSON format
@@ -67,9 +81,12 @@ Pelase note that the input VCF file(s) should be in ReportingApplication/inout f
 
 ```
 2. cd ClinVAP/
-3. docker-compose run --service-ports ClinicalReportR -t //inout -p jwp
+3. docker-compose run -e <ASSEMBLY> --service-ports ClinicalReportR -t //inout -p jwp -a <ASSEMBLY>
 
 ```
+* `assembly`: Please provide the genome assembly that was used in variant calling calling step to generate your VCF files. 
+	* `GRCh37` for genome assembly 37 
+	* `GRCh38` for genome assembly 38
 * `-t`: folder name containing input data. This should be in the data volume of ClinicalReportR service (modify Docker compose file to change this).
 * `-p`: output format to save the results.
 	* `j` to save report in JSON format
@@ -89,8 +106,8 @@ We provided an example input file, strelka\_passed\_missense\_somatic\_snvs.vcf 
 2. singularity pull -n reporting_app.img  shub://PersonalizedOncology/ClinVAP:report
 3. singularity pull -n file_deploy.img  shub://PersonalizedOncology/ClinVAP:filedeploy
 4. mkdir vep_files
-5. singularity run -B ./vep_files:/mnt file_deploy.img
-6. singularity run -B ./vep_files:/data -B ./ClinVAP/ReportingApplication/inout:/inout reporting_app.img -t /inout -p jwp
+5. singularity run -B ./vep_files:/mnt file_deploy.img -a GRCh37
+6. singularity run -B ./vep_files:/data -B ./ClinVAP/ReportingApplication/inout:/inout reporting_app.img -t /inout -p jwp -a GRCh37
 
 ```
 ### Running Demo with Docker
@@ -98,6 +115,6 @@ We provided an example input file, strelka\_passed\_missense\_somatic\_snvs.vcf 
 ```
 1. git clone https://github.com/PersonalizedOncology/ClinVAP.git
 2. cd ClinVAP/
-3. docker-compose run --service-ports ClinicalReportR -t /inout -p jwp
+3. docker-compose run -e GRCh37 --service-ports ClinicalReportR -t /inout -p jwp -a GRCh37
 
 ```
