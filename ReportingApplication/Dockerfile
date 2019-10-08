@@ -21,11 +21,11 @@ RUN apt-get -y update && \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install R packages
-RUN Rscript -e 'install.packages(c("dplyr", "dtplyr", "stringr", "splitstackshape", "optparse", "readr", "RCurl", "devtools", "log4r", "futile.logger", "fs"), dependencies = TRUE, repos = "https://cloud.r-project.org")'
-RUN Rscript -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/tidyr/tidyr_0.8.3.tar.gz", repos=NULL, type="source")'
+RUN Rscript -e 'install.packages(c("dplyr", "dtplyr", "stringr","splitstackshape", "optparse", "readr", "RCurl", "devtools", "log4r", "futile.logger", "fs"), dependencies = TRUE, repos = "https://cloud.r-project.org")'
 RUN Rscript -e 'devtools::install_github("colearendt/tidyjson@d79f3ff0a3279adef07819af4ab572f9ba46f3c0")'
 RUN Rscript -e 'devtools::install_github("aryoda/tryCatchLog@aa115fe2bd7b6569492eb0a9673f028ee6ec40a2")'
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAnnotation", "rjson"), ask = FALSE, suppressUpdates = TRUE)'
+RUN Rscript -e 'devtools::install_version("tidyr", version = "0.8.3")'
 
 # Although LoF is installed via VEP's install script above, it's unclear which version.
 # To be sure, we overwrite it with the latest release on github
