@@ -53,10 +53,11 @@ Pelase note that the input VCF file(s) should be in ReportingApplication/inout f
 
 ```
 2. cd ClinVAP/
-3. docker-compose run -e <ASSEMBLY> --service-ports ClinicalReportR -t /inout -p jwp -a <ASSEMBLY>
+3. export ASSEMBLY=<Your Assembly Here>
+4. docker-compose run -e ASSEMBLY --service-ports ClinicalReportR -t /inout -p jwp -a <Your Assembly Here>
 
 ```
-* `assembly`: Please provide the genome assembly that was used in variant calling calling step to generate your VCF files. 
+* `Your Assembly Here`: Please provide the genome assembly that was used in variant calling calling step to generate your VCF files. 
 	* `GRCh37` for genome assembly 37 
 	* `GRCh38` for genome assembly 38
 * `-t`: folder name containing input data. This should be in the data volume of ClinicalReportR service (modify Docker compose file to change this).
@@ -81,10 +82,11 @@ Pelase note that the input VCF file(s) should be in ReportingApplication/inout f
 
 ```
 2. cd ClinVAP/
-3. docker-compose run -e <ASSEMBLY> --service-ports ClinicalReportR -t //inout -p jwp -a <ASSEMBLY>
+3. export ASSEMBLY=<Your Assembly Here>
+4. docker-compose run -e ASSEMBLY --service-ports ClinicalReportR -t //inout -p jwp -a <Your Assembly Here>
 
 ```
-* `assembly`: Please provide the genome assembly that was used in variant calling calling step to generate your VCF files. 
+* `Your Assembly Here`: Please provide the genome assembly that was used in variant calling calling step to generate your VCF files. 
 	* `GRCh37` for genome assembly 37 
 	* `GRCh38` for genome assembly 38
 * `-t`: folder name containing input data. This should be in the data volume of ClinicalReportR service (modify Docker compose file to change this).
@@ -115,6 +117,7 @@ We provided an example input file, strelka\_passed\_missense\_somatic\_snvs.vcf 
 ```
 1. git clone https://github.com/PersonalizedOncology/ClinVAP.git
 2. cd ClinVAP/
-3. docker-compose run -e GRCh37 --service-ports ClinicalReportR -t /inout -p jwp -a GRCh37
+3. export ASSEMBLY=GRCh37
+4. docker-compose run -e ASSEMBLY --service-ports ClinicalReportR -t /inout -p jwp -a GRCh37
 
 ```
