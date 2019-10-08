@@ -41,7 +41,7 @@ Rscript -e 'install.packages(c("dplyr", "dtplyr", "stringr", "splitstackshape", 
 Rscript -e 'devtools::install_github("colearendt/tidyjson@d79f3ff0a3279adef07819af4ab572f9ba46f3c0")'
 Rscript -e 'devtools::install_github("aryoda/tryCatchLog@aa115fe2bd7b6569492eb0a9673f028ee6ec40a2")'
 Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("VariantAnnotation", "rjson"), ask = FALSE, suppressUpdates = TRUE)'
-RUN Rscript -e 'devtools::install_version("tidyr", version = "0.8.3")'
+Rscript -e 'devtools::install_version("tidyr", version = "0.8.3")'
 
 # install LoFtool plugin
 cd /opt/vep
