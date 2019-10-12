@@ -97,16 +97,10 @@ if (is.null(opt$metadata)) {
   log4r::level(logger) <- 'INFO'
   messages = paste(opt$metada, " is provided. It will be rendered into Patient info table")
   log4r::info(logger, messages)
+  # read metadata
+  patient_info <- jsonlite::fromJSON(opt$metadata)
+  attach(patient_info)
 }
-
-if (debug) {
-  # Provide test file here
-  vcfFile <- "test.vcf"
-}
-
-###################
-# update CiVIC data
-###################
 
 # Collects the data from CiVIC and returns a list with two data frames for genes and evidence.
 civic_source = "https://civicdb.org/downloads/01-Jan-2019/01-Jan-2019-ClinicalEvidenceSummaries.tsv"
@@ -268,7 +262,8 @@ biograph_drugs <- biograph_json %>%
     target_action = jstring("target_action"),
     drug_pmid = jstring("pmid"),
     interaction_type = jstring("interaction_type"),
-    is_cancer_drug = jlogical("is_cancer_drug")
+    is_cancer_drug = jlogical("is_cancer_drug"),
+    approval_status = jstring("approval_status")
   ) %>%
   mutate(hgnc_id = as.integer(hgnc_id)) %>%
   mutate(drug_pmid = ifelse(drug_pmid == "null", NA, drug_pmid)) %>%
@@ -329,11 +324,11 @@ num_of_tsg <- length(which(count_table$Type == "TSG")) + length(which(count_tabl
 # cancer drug targets with mutation
 lof_variant_dt_table <- biograph_drugs %>%
   # only cancer drug targets
-  filter(is_cancer_drug & interaction_type == "target") %>%
+  filter(is_cancer_drug & interaction_type == "target" & stringr::str_detect(approval_status, 'approved')) %>%
   dplyr::left_join(mvld_high_moderate, by = c("gene_symbol", "hgnc_id")) %>%
-  group_by(gene_symbol, Mutation, drug_name) %>%
+  group_by(gene_symbol, approval_status, drug_name) %>%
   summarise(Confidence = n(), References = paste(unique(na.omit(drug_pmid)), collapse = "|")) %>%
-  dplyr::select(Gene = gene_symbol, Mutation, Therapy = drug_name, Confidence, References) %>%
+  dplyr::select(Gene = gene_symbol, Status = approval_status, Therapy = drug_name, Confidence, References) %>%
   dplyr::arrange(desc(Confidence))
 
 # indirect associations:
@@ -344,6 +339,8 @@ lof_variant_dt_table <- biograph_drugs %>%
 lof_civic_dt_table <- mvld_high_moderate %>%
   inner_join(civic_evidence, by = c("gene_symbol" = "gene")) %>%
   dplyr::select(Gene = gene_symbol, Mutation = variant, Therapy = drugs, Disease = disease, Effect = clinical_significance, Evidence = evidence_level, References = pubmed_id)
+
+
 
 # mutation-specific annotations (from civic)
 # These are mutations reported by CiVIC with a known pharmacogenetic effect, clinical significance, and evidence level.
@@ -474,7 +471,7 @@ if (nrow(lof_variant_dt_table)) {
     unnest(References) %>%
     mutate(References = str_trim(References)) %>%
     left_join(reference_map, by = "References") %>%
-    group_by(Gene, Mutation, Therapy, Confidence) %>%
+    group_by(Gene, Status, Therapy, Confidence) %>%
     arrange(rowid, .by_group = T) %>%
     summarise(References = paste(rowid, collapse = ",")) %>%
     dplyr::arrange(desc(Confidence))
@@ -494,6 +491,11 @@ if (nrow(lof_civic_dt_table)) {
     group_by(Gene, Mutation, Therapy, Disease, Evidence) %>%
     summarise(References = paste(rowid, collapse = ",")) %>%
     arrange(Evidence)
+  # If user provided a metadata with diagnosis information, create another version of lof_civic_dt_table by filtering for the diagnosis
+  if (exists('patient_diagnosis_short') && !is.null(patient_info$patient_diagnosis_short)){
+    lof_civic_dt_table <- lof_civic_dt_table %>%
+    dplyr::filter(Disease == patient_info$patient_diagnosis_short | Disease == "Cancer")
+  }
   log4r::level(logger) <- 'INFO'
   log4r::info(logger, "A non-empty 'lof_civic_dt_table' is present.")
 } else {
@@ -524,7 +526,6 @@ if (nrow(drug_variants)) {
 # patient_info_json <- jsonlite::toJSON(patient_info, prety = TRUE, auto_unbox = TRUE)
 #patient_info <- jsonlite::toJSON(jsonlite::fromJSON("metadata.json"), dataframe = c("rows"), matrix = c("columnmajor"), pretty = TRUE, auto_unbox = TRUE)
 
-
 if (is.null(opt$metadata)) {
   patient_info_table <- paste0('"patient_firstname"',":",'"",',
                          "\n",'"patient_lastname"',":",'"",',
@@ -536,8 +537,6 @@ if (is.null(opt$metadata)) {
                          "\n",'"mutation_affected_tumorsupressorgenes"',":", '"', num_of_tsg, '",',
                          "\n",'"mutation_additional_information"',":",'""')
 } else {
-  # read metadata
-  patient_info <- jsonlite::fromJSON(opt$metadata)
   # mimic the structure
   patient_info_table <- paste0('"patient_firstname"',":",'"', patient_info$patient_firstname, '",', 
                                "\n",'"patient_lastname"',":",'"', patient_info$patient_lastname, '",',
