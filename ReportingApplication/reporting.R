@@ -488,7 +488,7 @@ if (nrow(lof_civic_dt_table)) {
     unnest(References) %>%
     mutate(References = str_trim(References)) %>%
     left_join(reference_map, by = "References") %>%
-    group_by(Gene, Mutation, Therapy, Disease, Evidence) %>%
+    group_by(Gene, Mutation, Therapy, Effect, Disease, Evidence) %>%
     summarise(References = paste(rowid, collapse = ",")) %>%
     arrange(Evidence)
   # If user provided a metadata with diagnosis information, create another version of lof_civic_dt_table by filtering for the diagnosis
@@ -509,7 +509,7 @@ if (nrow(drug_variants)) {
     unnest(References) %>%
     mutate(References = str_trim(References)) %>%
     left_join(reference_map, by = "References") %>%
-    group_by(Gene, Mutation, Therapy, Disease, Evidence) %>%
+    group_by(Gene, Mutation, Therapy, Effect, Disease, Evidence) %>%
     summarise(References = paste(rowid, collapse = ",")) %>%
     arrange(Evidence)
   log4r::level(logger) <- 'INFO'
