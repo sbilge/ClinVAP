@@ -19,12 +19,12 @@ services:
         - mongo-seed
 
     filedeploy:
-      image: personalizedoncology/clinvap_file_deploy:v1.0_$ASSEMBLY
+      image: personalizedoncology/clinvap_file_deploy:v1.1_$ASSEMBLY
       volumes:
         - dependencyF:/mnt
 
     ClinicalReportR: 
-      image: bilges/clinvap_reporting_app:feature
+      image: personalizedoncology/clinvap_reporting_app:v1.1
       volumes:
         - dependencyF:/data
         - ./ReportingApplication/inout:/inout
