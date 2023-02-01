@@ -19,7 +19,7 @@
 	"dependencies": {
 		"commander": "^2.14.1",
 		"docxtemplater": "^3.4.2",
-		"jszip": "^2.6.1",
+		"jszip": "^3.8.0",
 		"logger": "0.0.1"
 	}
 }
